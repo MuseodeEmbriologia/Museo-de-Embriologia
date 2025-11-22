@@ -288,7 +288,7 @@ opacity: 0;
   color: #2f2f2f;
   max-width: 500px;
 }
-
+/*Esto es parecido a lo otro para ponerle un estilo diferente a los botones de los videos y así, para que sean diferentes al de inicio*/
 #esp-moda button{
   background-color: #709078;
   color: #000;
@@ -327,4 +327,5 @@ opacity: 0;
   text-decoration: none;
   cursor: pointer; /*Esto es para que interactue con el ratón, en este caso para que se haga más oscuro*/
 }
+
 
