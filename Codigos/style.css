@@ -307,6 +307,24 @@ opacity: 0;
   background-color: #5d8874;
   transform: scale(1.05);
 }
+#redsem-moda button{
+  background-color: #709078;
+  color: #000;
+  border:rgba(25, 35, 56, 1);
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  float:center;
+}
+
+#redsem-moda button:hover {
+  background-color: #5d8874;
+  transform: scale(1.05);
+}
 
 .tamañovideo1{
   margin-top: 7%;
@@ -327,5 +345,6 @@ opacity: 0;
   text-decoration: none;
   cursor: pointer; /*Esto es para que interactue con el ratón, en este caso para que se haga más oscuro*/
 }
+
 
 
