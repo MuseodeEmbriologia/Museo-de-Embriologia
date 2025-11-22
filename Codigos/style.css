@@ -1,0 +1,330 @@
+
+/*Estos son los estilos para el cuerpo de la página, si se fujan no tiene un punto al inicio porque es como tal una parte de la página ya por default*/
+body {
+background: #192338;
+background: linear-gradient(180deg,rgba(25, 35, 56, 1) 0%, rgba(30, 46, 79, 1) 50%, rgba(49, 72, 122, 1) 100%);
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0px;
+min-height: auto; 
+text-align: center;
+}
+
+/*Estos ya tienen punto porque son elementos que añades al código, por eso tienen nombres diferentes y así*/
+/*Cuando tienes un punto antes, es porque pertenece a un apartado de "class" y abarca todos los elementos que estén en esa clase*/
+.titulo-con-imagenes {
+display: flex; 
+flex-direction: column;
+align-items: center;
+gap: 15px;
+margin-bottom: 20px;
+}
+
+/*Este que dice "img" es porque está especificando que, dentro del apartado de tituclo-con-imagenes, hay una imagen y quiero que lleve este formato*/
+.titulo-con-imagenes img {
+width: 120px;
+height: auto;
+border-radius: 12px;
+}
+
+/*Es el título de la pagina, los "h" son los encabezados y hay del 1 hasta el 6*/
+h1 {
+font-size: 2.2em;
+color: #2f2f2f;
+margin: 10px 0;
+}
+
+h2, h3 {
+margin: 5px 0;
+color: #393838;
+}
+
+/*p es para los parrafos*/
+p {
+font-size: 1em;
+text-align: justify;
+margin: 10px 0; /*Este es para los bordes, 10px en este caso para arriba y abajo y 0 en izquierda y derecha*/
+color: #333030;
+}
+
+/*Cuando tienes un # antes, es porque está solamente para un elemento, con un id específico*/
+#info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto 20px auto; 
+    max-width: 80%;
+    width: 100%; 
+    background: #8fb3e2; 
+    border-radius: 12px;
+    padding: 20px; 
+    box-shadow: 0 30px 40px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+button {
+background-color: #8fb3e2;
+color: #000;
+border:rgba(25, 35, 56, 1);
+padding: 12px 25px;
+font-size: 1.1em;
+font-weight: bold;
+border-radius: 25px;
+cursor: pointer;
+transition: 0.3s;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+margin-top: 20px;
+}
+
+button:hover {
+background-color: #4073b6;
+transform: scale(1.05);
+}
+
+#ar-container {
+width: 100%;
+height: 500px;
+display: none;
+}
+
+/*Este mendigo boton lo cambie tambien para que no saliera así como en gris xd*/
+#exit-ar {
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 200;
+padding: 12px 12px;
+background-color: #709078;
+color: black;
+border: none;
+border-radius: 10px;
+font-size:16px;
+cursor: pointer;
+backdrop-filter: blur(5px);
+display: none;
+align-items: center;
+gap: 8px;
+box-shadow: 0 4px 12px #709078;
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#exit-ar:hover {
+background-color:#5d8874;
+transform: scale(1.05);
+}
+
+#exit-ar svg {
+width: 18px;
+height: 18px;
+fill: black;
+}
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0,0,0,0.6);
+justify-content: center;
+align-items: center;
+z-index: 999;
+}
+
+/* Caja del contenido */
+.modal-content {
+position: relative;
+background: #709078;
+background: linear-gradient(180deg,rgba(112, 144, 120, 1) 0%, rgba(144, 161, 128, 1) 100%);
+padding: 25px;
+border-radius: 15px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+max-width: 400px;
+width: 80%;
+text-align: center;
+animation: fadeIn 0.3s ease;
+}
+
+#menu__ham {
+opacity: 0;
+
+}
+#menu__ham:checked + .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__ham:checked + .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+#menu__ham:checked + .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu__ham:checked ~ .menu__box {
+  left: 0 !important;
+}
+.menu__btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 2;
+  display: none;
+}
+
+.menu__btn.active {
+  display: block;
+}
+
+.menu__btn > span,.menu__btn > span::before,.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color:#3a706a;
+  transition-duration: .25s;
+}
+
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background: #709078;
+  background: linear-gradient(180deg,rgba(112, 144, 120, 1) 0%, rgba(144, 161, 128, 1) 100%);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+  transition-duration: .25s;
+  z-index: 1;
+}
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition-duration: .25s;
+
+}
+.menu__item:hover {
+  background-color:#5d8874;
+}
+
+/*Este es para la caja pero donde se va a ver el video*/
+.modalvideo {
+  display: none; 
+  position: fixed; /*Pa que se quede fijo y no se moeba*/
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /*Esto es lo que sirve para el scrollsito*/
+  background-color: rgba(0,0,0,0.4); /*Un fondo full negro*/
+}
+
+/*Esto es para la cajita del contenido, para la información del video*/
+.ModalVidCont {
+  background: #709078; 
+  background: linear-gradient(180deg,rgba(112, 144, 120, 1) 0%, rgba(144, 161, 128, 1) 100%);
+  margin: 7% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  overflow-y: auto; /*Eso es para que aparezca la barra lateral*/
+  max-height: 70vh; /*Marca la altura hasta donde quiero que llegue la cajita de la info*/
+}
+
+/*Este es el formato que le doy a la marca de agua, donde las indicaciones especiales son*/
+.marca-de-agua {
+  position:fixed; /*Este es importante para que no se mueva del lugar, osea que se quede ahí al hacer scroll en el texto*/
+  top: 50%;
+  transform: translate(-50%, -50%); /*Todo eso del transform y así es solamente de posición, igual que las del width y eso*/
+  width: 200px;
+  max-width: 80%;
+  max-height: 80%;
+  opacity: 0.25; /*Esa es para que salga transparentada*/
+  pointer-events:none; /*Para que el cursor no la tome en cuenta y no tenga interacción*/
+  z-index: 0; /*Para asegurarme de que se quede atras del texto y que no quede tapandolo*/
+}
+
+.textoinfor {
+  position:relative; /*Esta del texto es para que se "mande" a los demas elementos, es decir que lo tomen de referencia, ademas que hace que el texto se vea mejor*/
+  z-index: 1;/*Este valor es para que se quede arriba de la imágen de la marca de agua*/
+}
+
+.textoinfor h2 {
+  text-align: center;
+  line-height: 1.6; 
+  color: #000;
+  max-width: 500px;
+}
+
+/*Lo mismo que ahorita, es una indicación de que, en el apartado de "textoinfor" tenemos un parrafo "p" y quiero que tenga x características*/
+.textoinfor p{
+  text-align: justify;
+  line-height: 1.6; /*Es la separación de las lineas en este caso del texto de la informacion del video*/
+  color: #2f2f2f;
+  max-width: 500px;
+}
+
+#esp-moda button{
+  background-color: #709078;
+  color: #000;
+  border:rgba(25, 35, 56, 1);
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  float:center;
+}
+
+#esp-moda button:hover {
+  background-color: #5d8874;
+  transform: scale(1.05);
+}
+
+.tamañovideo1{
+  margin-top: 7%;
+}
+
+.Cerrarinfvid {
+  color: rgba(49, 72, 122, 1);
+  float: right; /*Esto marca la posición de la x, donde quiero que esté*/
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer; /*Esto es para que interactue con el ratón*/
+}
+
+.Cerrarinfvid:hover,
+.Cerrarinfvid:focus {
+  color: rgba(25, 35, 56, 1);
+  text-decoration: none;
+  cursor: pointer; /*Esto es para que interactue con el ratón, en este caso para que se haga más oscuro*/
+}
+
