@@ -184,7 +184,8 @@ opacity: 0;
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color:#3a706a;
+  background-color:#709078;
+  backdrop-filter: blur(5px);
   transition-duration: .25s;
 }
 
@@ -345,6 +346,7 @@ opacity: 0;
   text-decoration: none;
   cursor: pointer; /*Esto es para que interactue con el ratón, en este caso para que se haga más oscuro*/
 }
+
 
 
 
