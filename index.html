@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="Codigos/style.css">
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
+  <!--AJUSTANDO A CUALQUIER PANTALLONA-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>Espermatogénesis</title>
 
-  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+<!--LIBRERIAS-->
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.0.0/dist/aframe-extras.min.js" defer></script>
@@ -21,16 +23,16 @@
 <img src="https://github.com/KelvinRiv/Proyecto/blob/main/imagenes/Marca%20de%20agua%20museo.png?raw=true" alt="Marca de agua museo">
 </div>
 <h2>Espermatogénesis</h2>
-
-        <h3>Universidad Autónoma de Chihuahua</h3>
-        <p>La embriología es el estudio del desarrollo de un embrión desde la fecundación del óvulo hasta la octava semana de gestación. Este campo científico es fundamental para comprender cómo se forman los organismos y las estructuras celulares básicas que dan origen a la vida.</p>
-        <p>Con esta aplicación usted podrá obtener una experiencia de realidad aumentada donde podrá ver modelos 3D animados de la espermatogénesis. Simplemente inicie la cámara y apunte al marcador Hiro para visualizar el contenido.</p>
+  <h3>Universidad Autónoma de Chihuahua</h3>
+    <p>La embriología es el estudio del desarrollo de un embrión desde la fecundación del óvulo hasta la octava semana de gestación. Este campo científico es fundamental para comprender cómo se forman los organismos y las estructuras celulares básicas que dan origen a la vida.</p>
+    <p>Con esta aplicación usted podrá obtener una experiencia de realidad aumentada donde podrá ver modelos 3D animados de la espermatogénesis. Simplemente inicie la cámara y apunte al marcador Hiro para visualizar el contenido.</p>
   <div id="menu-modelos">
-<h3>Si desea una experiencia inmersiva en la embriología da click en el botón de abajo</h3>
+    <h3>Si desea una experiencia inmersiva en la embriología da click en el botón de abajo</h3>
     <button data-model="testiculo"> Experiencia AR </button>
   </div>
 </div>
 
+<!--CAJA PARA INICIAR REALIDAD AUMENTADA-->
 <div id="modal-modelo" class="modal">
   <div class="modal-content">
     <h2 id="modal-titulo"></h2>
@@ -40,6 +42,7 @@
   </div>
 </div>
 
+<!--MENÚ DE HAMBURGUESITA-->
 <div class="hamburger-menu">
     <input id="menu__ham" type="checkbox" />
     <label class="menu__btn" for="menu__ham" >
@@ -48,10 +51,13 @@
 
     <ul class="menu__box">
       <li><a class="menu__item" href="#" id="redsem-btn">Tubos seminiferos</a></li>
-      <li><a class="menu__item" href="#" id="esp-btn">Espermatogénesis</a></li>
-      <li><a class="menu__item" href="#">Animación</a></li>
+      <li><a class="menu__item" href="#" id="recorrido-btn">Recorrido</a></li>
+      <li><a class="menu__item" href="#" id="espergen-btn">Espermatogénesis</a></li>
+      <li><a class="menu__item" href="#" id="epididimo-btn">Epidídimo</a></li>
     </ul>
   </div>
+
+<!--TUBOS SEMINIFEROS-->
 <div id="redsem-moda" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
     <div style="background: rgb(218, 218, 218); padding: 20px; width: 80%; height: 80%;" position = 'fixed' >
     <model-viewer
@@ -62,10 +68,32 @@
     style="width: 100%; height: 90%;"
     >
     </model-viewer>
+     <button id ="abririnfsem">Información</button>
+          <div id="Infosem" class = "modalsem">
+            <div class ="ModalSemCont">
+            <span class="Cerrarinfsem">&times;</span>
+                <h2>Epidídimo</h2>
+                  <div class="textosem">
+                    <img src="https://github.com/KelvinRiv/Proyecto/blob/main/imagenes/Marca%20de%20agua%20museo.png?raw=true" alt="Marca de agua museo" class="marca-de-agua">
+                    <p>Los túbulos seminíferos representan el punto de inicio del extenso trayecto que siguen los espermatozoides desde su formación hasta su expulsión. Constituyen la porción esencial del testículo donde ocurre la espermatogénesis y son el origen anatómico y funcional de todo el sistema de conductos que permite su transporte. Su comprensión es indispensable para entender la fisiología reproductora masculina y las patologías vinculadas con la infertilidad.</p>
+                    <p>Anatómicamente, los túbulos seminíferos se organizan dentro de los lobulillos testiculares, delimitados por septos conectivos derivados de la túnica albugínea. En su interior albergan al epitelio seminífero, conformado por células germinales en diferentes etapas de maduración y por las células de Sertoli, encargadas de sostén, nutrición y regulación del microambiente necesario para la diferenciación espermática. A medida que la espermatogénesis avanza, los espermatozoides inmaduros son liberados al lumen tubular, donde inician su tránsito pasivo.</p>
+                    <p>En el extremo de cada túbulo seminífero, el epitelio experimenta una transición estructural que da origen a los túbulos rectos. Estas estructuras cortas, rectilíneas y de calibre más uniforme carecen de células germinales y se caracterizan por un epitelio más simple. Su primera porción conserva células de Sertoli, pero rápidamente se convierte en un revestimiento cúbico simple especializado en la conducción. Los túbulos rectos marcan el límite entre la porción estrictamente productora del testículo y el sistema intratesticular de transporte.</p>
+                    <p>Los túbulos rectos desembocan en la red seminífera, un entramado de conductos interconectados localizado en el mediastino testicular. La rete testis funciona como cámara de reunión y distribución en la cual los espermatozoides —que aún carecen de motilidad propia— avanzan impulsados por el flujo de líquido generado en los túbulos. Su epitelio cúbico simple con microvellosidades facilita la modificación del fluido testicular, contribuyendo a la concentración y preservación de las células espermáticas recién formadas. En esta región ocurre una primera etapa de filtración y regulación del ambiente luminal, fundamental para mantener la viabilidad de los gametos.</p>
+                    <p>Desde la red seminífera emergen los conductos eferentes, cuya función es continuar el transporte y absorber la mayor parte del líquido testicular, concentrando aún más a los espermatozoides antes de su ingreso al epidídimo. Conforme avanzan por el epidídimo, los espermatozoides completan su maduración, adquieren motilidad progresiva y capacidad de fecundación. Posteriormente, durante la eyaculación, el trayecto continúa a través de los conductos deferentes, que conectan el epidídimo con las vías excretoras del aparato reproductor masculino. Así, los túbulos seminíferos constituyen el primer eslabón de una cadena continua de conductos cuya coordinación es esencial para la fertilidad.</p>
+                    <p>La relevancia fisiológica de estos componentes radica en la continuidad estructural y funcional entre ellos. Cualquier alteración en los túbulos seminíferos, los túbulos rectos o la rete testis —ya sea por obstrucción, inflamación, degeneración epitelial o alteraciones del mediastino— puede comprometer el tránsito espermático intratesticular y generar oligozoospermia o azoospermia. Por ello, estas regiones son de gran importancia en el diagnóstico urológico y en el estudio de la infertilidad masculina.</p>
+                    <p>Desde una perspectiva embriológica, los túbulos seminíferos se originan a partir de los cordones sexuales del testículo embrionario, que posteriormente se canalizan y se continúan con la red canalicular primitiva que dará lugar a la rete testis. Esta continuidad de origen explica la conexión directa entre las estructuras intratesticulares y las vías conductoras extratesticulares.</p>
+                    <p> En conjunto, los túbulos seminíferos y sus estructuras asociadas conforman un sistema altamente especializado que asegura la producción, concentración, transporte y maduración de los espermatozoides. Su estudio no solo permite entender la fisiología del aparato reproductor masculino sino también proporciona bases fundamentales para abordar patologías que afectan la fertilidad.</p>
+                    <p><strong>BIBLIOGRAFÍAS</strong></p>
+                    <p>Moore, K. L., Persaud, T. V. N., & Torchia, M. G. (2019). Embriología Clínica (10.ª ed.). Elsevier. Sadler, T. W. (2019). Langman: Embriología Médica (14.ª ed.). Wolters Kluwer. Larsen, W. J. (2017). Embriología Humana (5.ª ed.). Elsevier. Junqueira, L. C., & Carneiro, J. (2017). Histología Básica (14.ª ed.). McGraw-Hill. Gartner, L. P., & Hiatt, J. L. (2018). Histología en Medicina (5.ª ed.). Wolters Kluwer. Drake, R. L., Vogl, A. W., & Mitchell, A. W. M. (2019). Gray. Anatomía para Estudiantes (4.ª ed.). Elsevier. Tortora, G. J., & Derrickson, B. (2017). Principios de Anatomía y Fisiología (15.ª ed.). Wiley. Guyton, A. C., & Hall, J. E. (2021). Tratado de Fisiología Médica (14.ª ed.). Elsevier. Wein, A. J., Kavoussi, L. R., Partin, A. W., Peters, C. A. (2016). Campbell-Walsh Urología (11.ª ed.). Elsevier</p>
+                  </div>
+            </div>
+          </div>
     <button id="cerrar-redsem-btn">Cerrar</button>
     </div>
 </div>
-<div id="esp-moda" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+
+<!--RECORRIDO-->
+<div id="recorrido-moda" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
     <div style="background: rgb(0, 0, 0); padding: 20px; width: 100%; height: 100%;">
       <video width="90%" height="70%" controls class="tamañovideo1">
         <source src="https://github.com/KelvinRiv/Proyecto/raw/refs/heads/main/Camino%20de%20juanito.mp4" type="video/mp4">
@@ -85,9 +113,52 @@
             </div>
         </div>
       </div>
-    <button id="cerrar-esp-btn">Cerrar</button>
+    <button id="cerrar-recorrido-btn">Cerrar</button>
     </div>
 </div>
+
+<!--ESPERMATOGÉNESIS-->
+<div id="espergen-moda" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background: rgb(0, 0, 0); padding: 20px; width: 100%; height: 100%;">
+      <video width="90%" height="70%" controls class="tamañovideoespergen">
+        <source src="https://github.com/KelvinRiv/Proyecto/raw/refs/heads/main/Espermatogenesisvid.mp4" type="video/mp4">
+      </video>
+    <button id ="abririnfespergen">Información</button>
+      <div id="Infoespergen" class = "modalespergen">
+        <div class ="ModalEspergenCont">
+        <span class="Cerrarespergen">&times;</span>
+            <h2>Espermatogénesis</h2>
+              <div class="textoespergen">
+                <img src="https://github.com/KelvinRiv/Proyecto/blob/main/imagenes/Marca%20de%20agua%20museo.png?raw=true" alt="Marca de agua museo" class="marca-de-agua">
+                <p>La <b>Espermatogénesis</b> es esa secuencia biológica continua y esencial donde las células germinales masculinas (espermatogonias) se transforman en espermatozoides maduros, listos para la fertilización. Este fenómeno ocurre dentro de los túbulos seminíferos del testículo, comenzando en la pubertad y manteniéndose toda la vida, durante un ciclo completo aproximadamente de 64 a 74 días. Su propósito principal es doble: primero, reducir a la mitad el número de cromosomas (de 2n a 1n) mediante la meiosis; segundo, modificar radicalmente la morfología de la célula para darle motilidad y capacidad enzimática de penetración. </p>
+                <h3><b>Fases Secuenciales</b></h3>
+                <p>La formación del espermatozoide se concreta en tres fases bien diferenciadas.</p>
+                <p><strong>Proliferación y Crecimiento (Mitosis):</strong></p>
+                <p>El proceso arranca con las <b>espermatogonias Tipo A</b>, las células madre que se dividen por <b>mitosis</b> para garantizar una reserva constante de células germinales. De estas surgen las <b>Espermatogonias Tipo B</b> (células diploides, 2n cromosomas), las cuales crecen y se preparan para la meiosis. La célula resultante es el <b>Espermatocito Primario</b> (2n cromosomas, 4D de ADN) que ha duplicado su material genético. Un aspecto crucial aquí es que estas células, a partir de este punto, están unidas por puentes citoplasmáticos; esto asegura la sincronía y el reparto equitativo de los productos génicos, indispensable para la diferenciación. </p>
+                <p><strong>Maduración y Reducción Cromosómica (Meiosis):</strong></p>
+                <p>El <b>Espermatocito Primario</b> realiza la <b>Meiosis I</b> (una división reduccional que toma cerca de 22 días), generando dos <b>Espermatocitos Secundarios</b> (células haploides, 1n cromosomas, 2D de ADN). Durante esta fase prolongada sucede el entrecruzamiento (crossing over), fuente vital de variabilidad genética. Luego, cada <b>Espermatocito Secundario</b> se divide rápidamente en la <b>Meiosis II</b> (una división ecuacional), lo que resulta en un total de cuatro <b>Espermátides</b> (células haploides, 1n cromosomas, 1D de ADN) por cada célula primaria inicial. </p>
+                <p><strong>Espermiogénesis (Metamorfosis Final):</strong></p>
+                <p>La espermiogénesis es la metamorfosis que transforma una redonda e inmóvil <b>espermátide</b> en el funcional <b>espermatozoide</b>, esta transformación consta de varias características que la definen:</p>
+                  <ul>
+                    <li><b>Cabeza Funcional:</b> El aparato de Golgi crea la vesícula acrosómica, la cual forma el acrosoma (<b>capuchón enzimático</b>) sobre el núcleo. El núcleo se condensa, se alarga, y sus histonas son reemplazadas por protaminas para una ultra compactación del ADN, protegiéndolo para el transporte. </li>
+                    <li><b>Motilidad y Energía:</b> Los centriolos organizan el <b>axonema</b> (el esqueleto del flagelo). Las <b>mitocondrias</b> se envuelven en espiral para crear la pieza intermedia, que actúa como la central energética (ATP) para mover la cola. </li>
+                    <li><b>Liberación:</b> Finalmente, el citoplasma sobrante (cuerpo residual) es expulsado y digerido por las <b>células de Sertoli</b>, liberando al espermatozoide maduro a la luz del túbulo seminífero en un proceso llamado <b>Espermiación</b>.</li>
+                  </ul>
+                <p><strong>BIBLIOGRAFÍAS</strong></p>
+                  <ul>
+                    <li>Moore, K. L., Persaud, T. V. N., & Torchia, M. G. (2020). Antes de nacer: Lo esencial en embriología y defectos congénitos (10a ed.). Elsevier.</li>
+                    <li>Sadler, T. W. (2017). Langman Embriología Médica con Orientación Clínica (13a ed.). Wolters Kluwer.</li>
+                    <li>Young, B., Heath, J. W., & Wheater, P. R. (2014). Wheater. Histología funcional: texto y atlas en color (6a ed.). Elsevier España.</li>
+                    <li>Ross, M. H., & Pawlina, W. (2020). Histología: Texto y atlas. Correlación con biología molecular y celular (8a ed.). Wolters Kluwer.</li>
+                  </ul>
+            </div>
+        </div>
+      </div>
+    <button id="cerrar-espergen-btn">Cerrar</button>
+    </div>
+</div>
+
+<!--EPIDÍDIMO-->
 <div id="epididimo-moda" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
     <div style="background: rgb(218, 218, 218); padding: 20px; width: 80%; height: 80%;" position = 'fixed' >
     <model-viewer 
@@ -155,6 +226,7 @@
     </div>
 </div>
 
+<!--BOTON DE SALIDA-->
     <button id="exit-ar">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M18.3 5.71a1 1 0 0 0-1.42 0L12 10.59 7.11 5.7a1 1 0 0 0-1.42 1.42L10.59 12l-4.9 4.89a1 1 0 0 0 1.42 1.42L12 13.41l4.89 4.9a1 1 0 0 0 1.42-1.42L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z"/>
@@ -164,6 +236,7 @@
 
     <div id="ar-container"></div>
 
+<!--IMPORTANDO JS-->
 <script src ="Codigos/JavaScriptMuseo.js"></script>
 </body>
 </html>
