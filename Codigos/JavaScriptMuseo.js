@@ -174,19 +174,23 @@ startBtn.addEventListener('click', () => {
     marker.setAttribute('type', 'pattern');
     marker.setAttribute('url', 'markers/pattern-marcaCreeper.patt');
 
-    const model = document.createElement('a-entity');
+ const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculofinal.glb');
     model.setAttribute('scale', '0.05 0.05 0.05');
     model.setAttribute('position', '0 0 0');
     model.setAttribute('rotation', '-90 0 0');
     model.setAttribute('gesture-handler', '');
-    model.addEventListener('model-loaded', (e) => {
-      const object3D = model.getObject3D('mesh');
-      if (object3D) {
-        const box = new THREE.Box3().setFromObject(object3D);
-        const center = box.getCenter(new THREE.Vector3());
-        object3D.position.sub(center);  
-        console.log("Modelo centrado en el marcador");
+
+    model.addEventListener('model-loaded', () => {
+        const object3D = model.getObject3D('mesh');
+        if (object3D) {
+            const box = new THREE.Box3().setFromObject(object3D);
+            const center = box.getCenter(new THREE.Vector3());
+            object3D.position.sub(center);
+            console.log("✔ Modelo centrado correctamente");
+        }
+    });
+
     marker.appendChild(model);
     scene.appendChild(marker);
 
@@ -214,6 +218,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
