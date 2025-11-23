@@ -52,7 +52,7 @@ cerrarBtn.addEventListener('click', () => {
 abririnfsem.onclick = function() {
     modalsem.style.display = "block";
 };
-spanCerrarepi.onclick = function() {
+spanCerrarsem.onclick = function() {
     modalsem.style.display = "none";
 };
 
@@ -208,6 +208,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
