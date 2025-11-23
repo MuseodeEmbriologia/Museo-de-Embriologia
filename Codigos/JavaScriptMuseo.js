@@ -81,7 +81,7 @@ startBtn.addEventListener('click', () => {
     marker.setAttribute('url', 'markers/pattern-marcaCreeper.patt');
 
     const model = document.createElement('a-entity');
-    model.setAttribute('gltf-model', 'Modelos y animaciones/transparente.glb');
+    model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculo12.glb');
     model.setAttribute('scale', '1 1 1');
     model.setAttribute('position', '0 0 0');
     model.setAttribute('rotation', '0 0 0');
@@ -123,6 +123,7 @@ abriresp.addEventListener('click', () => {
 cerraresp.addEventListener('click', () => {
     modalesp.style.display = 'none';
 });
+
 
 
 
