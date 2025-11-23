@@ -82,7 +82,7 @@ startBtn.addEventListener('click', () => {
     const marker = document.createElement('a-marker');
 
     marker.setAttribute('type', 'pattern');
-    marker.setAttribute('patternUrl', 'markers/pattern-marcaCreeper.patt');
+    marker.setAttribute('url', 'markers/pattern-marcaCreeper.patt');
 
 
     const model = document.createElement('a-entity');
@@ -118,6 +118,7 @@ exitBtn.addEventListener('click', () => {
 
     setTimeout(() => { location.reload(); }, 300);
 });
+
 
 
 
