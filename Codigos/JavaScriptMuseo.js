@@ -163,7 +163,10 @@ startBtn.addEventListener('click', () => {
     exitBtn.style.display = 'flex';
     arContainer.style.display = 'block';
     menu__btn.classList.add('active');
-
+    scene.setAttribute('embedded', '');
+    scene.setAttribute('vr-mode-ui', 'enabled: false');
+    scene.setAttribute('renderer', 'logarithmicDepthBuffer: true');
+    
     const Pantallagrande = window.matchMedia('(min-width: 768px)');
     const scene = document.createElement('a-scene');
     function seteandoAR(tam) {
@@ -179,10 +182,7 @@ startBtn.addEventListener('click', () => {
     }
     seteandoAR(Pantallagrande);
     Pantallagrande.addEvenListener('change',seteandoAR);
-    scene.setAttribute('embedded', '');
-    scene.setAttribute('vr-mode-ui', 'enabled: false');
-    scene.setAttribute('renderer', 'logarithmicDepthBuffer: true');
-    scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false; videoTextureSize: ${resolucion};');
+    scene.setAttribute('arjs', `sourceType: webcam; debugUIEnabled: false; videoTextureSize: ${resolucion};`);
 
 
     const marker = document.createElement('a-marker');
@@ -235,6 +235,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
