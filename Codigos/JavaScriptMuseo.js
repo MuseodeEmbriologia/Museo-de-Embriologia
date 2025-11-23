@@ -1,217 +1,226 @@
 
-function $id(id) { return document.getElementById(id); }
-function safeAddEvent(el, ev, fn) { if (el) el.addEventListener(ev, fn); }
-function stopVideoTracks() {
-  const video = document.querySelector('video');
-  if (video && video.srcObject) {
-    video.srcObject.getTracks().forEach(t => t.stop());
-    video.srcObject = null;
-  }
-}
+const info = document.getElementById('info');
+const arContainer = document.getElementById('ar-container');
+const exitBtn = document.getElementById('exit-ar');
 
-// --- Elementos principales ---
-const info = $id('info');
-const arContainer = $id('ar-container');
-const exitBtn = $id('exit-ar');
+const menubtn = document.getElementsByClassName('menu__btn')
+const menu__btn = menubtn[0]
 
-// menú (puede no existir)
-const menu__btn = (document.getElementsByClassName('menu__btn') || [null])[0] || null;
+//Modal de la pagina de inicio
+const modal = document.getElementById('modal-modelo');
+const modalTitulo = document.getElementById('modal-titulo');
+const modalDescripcion = document.getElementById('modal-descripcion');
+const startBtn = document.getElementById('start-ar');
+const cerrarModal = document.getElementById('cerrar-modal');
 
-// Modal principal
-const modal = $id('modal-modelo');
-const modalTitulo = $id('modal-titulo');
-const modalDescripcion = $id('modal-descripcion');
-const startBtn = $id('start-ar');
-const cerrarModal = $id('cerrar-modal');
+//Tubos seminiferos//
+const modalsem = document.getElementById('Infosem');
+const spanCerrarsem = document.getElementsByClassName('Cerrarinfsem')[0];
 
-// Modales varios (se buscan de forma segura)
-const modalsem = $id('Infosem');
-const spanCerrarsem = (document.getElementsByClassName('Cerrarinfsem') || [null])[0];
+//Recorrido//
+const modalvideo = document.getElementById('Infovideo');
+const spanCerrar = document.getElementsByClassName("Cerrarinfvid")[0];
 
-const modalvideo = $id('Infovideo');
-const spanCerrar = (document.getElementsByClassName('Cerrarinfvid') || [null])[0];
+//Epididimo//
+const modalinfoepi = document.getElementById('Infoepi');
+const spanCerrarepi = document.getElementsByClassName("Cerrarinfepi")[0];
 
-const modalinfoepi = $id('Infoepi');
-const spanCerrarepi = (document.getElementsByClassName('Cerrarinfepi') || [null])[0];
+//Espermatogenesis//
+const modalinfoespergen = document.getElementById('Infoespergen');
+const spanCerrarespergen = document.getElementsByClassName("Cerrarespergen")[0];
 
-const modalinfoespergen = $id('Infoespergen');
-const spanCerrarespergen = (document.getElementsByClassName('Cerrarespergen') || [null])[0];
-
-// Botones "abrir info" (pueden llamarse de forma distinta en tu HTML).
-// Intento obtener por varios nombres que usaste en el código anterior.
-const abririnfsem = $id('abririnfsem') || $id('redsem-btn') || null;
-const abririnf1 = $id('abririnf1') || $id('recorrido-btn') || null;
-const abririnf2 = $id('abririnf2') || $id('epididimo-btn') || null;
-const abririnfespergen = $id('abririnfespergen') || $id('espergen-btn') || null;
-
-// Modales laterales / botones
-const abrirBtn = $id('redsem-btn');
-const cerrarBtn = $id('cerrar-redsem-btn');
-const moda = $id('redsem-moda');
-
-const abrirrecorrido = $id('recorrido-btn');
-const cerrarrecorrido = $id('cerrar-recorrido-btn');
-const modalrecorrido = $id('recorrido-moda');
-
-const abrirespergen = $id('espergen-btn');
-const cerrarespergen = $id('cerrar-espergen-btn');
-const modalespergen = $id('espergen-moda');
-
-const abrirepi = $id('epididimo-btn');
-const cerrarepi = $id('cerrar-epididimo-btn');
-const modaepi = $id('epididimo-moda');
-
-// Información de cada modelo (puedes ampliar)
+// Información de cada modelo
 const modelosInfo = {
-  testiculo: {
-    titulo: "Modelos de espermatogénesis",
-    descripcion: 'Al hacer click en el botón de "Iniciar Realidad aumentada", se abrirá la cámara. Asegúrate de permitir el acceso.'
-  }
+    testiculo: {
+        titulo: "Modelos de espermatogénesis",
+        descripcion: 'Al hacer click en el botón de "Iniciar Realidad aumentada", se abrira una nueva pestaña donde necesitaremos que nos permitas acceder a tu cámara y que aceptes otros permisos, asegurate de aceptarlos para que todo funcione correctamente, en caso de no aceptarlos, puedes presionar el botón de salir y volver a la página de inicio. No nos quedamos con ningun dato de los usuarios, todo se borra al salir de la página'
+        }
+    };
+
+//Tubos seminiferos//
+const abrirBtn = document.getElementById('redsem-btn');
+const cerrarBtn = document.getElementById('cerrar-redsem-btn');
+const moda = document.getElementById('redsem-moda');
+
+abrirBtn.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    moda.style.display = 'flex'; 
+});
+cerrarBtn.addEventListener('click', () => {
+    moda.style.display = 'none'; 
+});
+abririnfsem.onclick = function() {
+    modalsem.style.display = "block";
+};
+spanCerrarsem.onclick = function() {
+    modalsem.style.display = "none";
 };
 
-// --- Modales / UI ---
-// Tubos seminíferos
-safeAddEvent(abrirBtn, 'click', (e) => { e && e.preventDefault(); if (moda) moda.style.display = 'flex'; });
-safeAddEvent(cerrarBtn, 'click', () => { if (moda) moda.style.display = 'none'; });
-if (abririnfsem) safeAddEvent(abririnfsem, 'click', (e) => { e && e.preventDefault(); if (modalsem) modalsem.style.display = 'flex'; });
-if (spanCerrarsem) safeAddEvent(spanCerrarsem, 'click', () => { if (modalsem) modalsem.style.display = 'none'; });
-
-// Recorrido / video
-if (abririnf1) safeAddEvent(abririnf1, 'click', (e) => { e && e.preventDefault(); if (modalrecorrido) modalrecorrido.style.display = 'flex'; });
-if (safeAddEvent) safeAddEvent(spanCerrar, 'click', () => { if (modalvideo) modalvideo.style.display = 'none'; });
-safeAddEvent(abrirrecorrido, 'click', (e) => { e && e.preventDefault(); if (modalrecorrido) modalrecorrido.style.display = 'flex'; });
-safeAddEvent(cerrarrecorrido, 'click', () => { if (modalrecorrido) modalrecorrido.style.display = 'none'; });
-
-// Espermatogénesis
-if (abrirespergen) safeAddEvent(abrirespergen, 'click', (e) => { e && e.preventDefault(); if (modalespergen) modalespergen.style.display = 'flex'; });
-if (cerrarespergen) safeAddEvent(cerrarespergen, 'click', () => { if (modalespergen) modalespergen.style.display = 'none'; });
-if (abririnfespergen) safeAddEvent(abririnfespergen, 'click', () => { if (modalinfoespergen) modalinfoespergen.style.display = 'block'; });
-if (spanCerrarespergen) safeAddEvent(spanCerrarespergen, 'click', () => { if (modalinfoespergen) modalinfoespergen.style.display = 'none'; });
-
-// Epidídimo
-if (abririnf2) safeAddEvent(abririnf2, 'click', () => { if (modaepi) modaepi.style.display = 'flex'; });
-if (cerrarepi) safeAddEvent(cerrarepi, 'click', () => { if (modaepi) modaepi.style.display = 'none'; });
-if (spanCerrarepi) safeAddEvent(spanCerrarepi, 'click', () => { if (modalinfoepi) modalinfoepi.style.display = 'none'; });
-
-// --- Menu principal (selección de modelo) ---
-document.querySelectorAll('#menu-modelos button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const modelKey = btn.getAttribute('data-model');
-    const modelData = modelosInfo[modelKey] || { titulo: 'Modelo', descripcion: '' };
-    if (modalTitulo) modalTitulo.textContent = modelData.titulo;
-    if (modalDescripcion) modalDescripcion.textContent = modelData.descripcion;
-    if (startBtn) startBtn.dataset.model = modelKey;
-    if (modal) modal.style.display = 'flex';
-  });
+abririnfsem.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalsem.style.display = 'flex'; 
 });
 
-safeAddEvent(cerrarModal, 'click', () => { if (modal) modal.style.display = 'none'; });
+//Recorrido//
+const abrirrecorrido = document.getElementById('recorrido-btn');
+const cerrarrecorrido = document.getElementById('cerrar-recorrido-btn');
+const modalrecorrido = document.getElementById('recorrido-moda');
 
-// --- Función para crear la escena AR de forma segura ---
-function createARScene(options = {}) {
-  // limpia contenedor antes de crear
-  arContainer.innerHTML = '';
+abririnf1.onclick = function() {
+    modalvideo.style.display = "block";
+};
+spanCerrar.onclick = function() {
+    modalvideo.style.display = "none";
+};
+abrirrecorrido.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalrecorrido.style.display = 'flex'; 
+});
+cerrarrecorrido.addEventListener('click', () => {
+    modalrecorrido.style.display = 'none'; 
+});
+abririnf1.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalrecorrido.style.display = 'flex'; 
+});
 
-  const scene = document.createElement('a-scene');
-  scene.setAttribute('embedded', '');
-  // arjs config: source webcam, sin UI de debug
-  scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
-  scene.setAttribute('gesture-detector', '');
+//Espermatogénesis//
+const abrirespergen = document.getElementById('espergen-btn');
+const cerrarespergen = document.getElementById('cerrar-espergen-btn');
+const modalespergen = document.getElementById('espergen-moda');
 
-  // marcador y modelo (paths por defecto; cámbialos si tus rutas son distintas)
-  const marker = document.createElement('a-marker');
-  marker.setAttribute('type', 'pattern');
-  marker.setAttribute('url', options.markerUrl || 'markers/pattern-marcaCreeper.patt');
+abririnfespergen.onclick = function() {
+    modalinfoespergen.style.display = "block";
+};
+spanCerrarespergen.onclick = function() {
+    modalinfoespergen.style.display = "none";
+};
+abrirespergen.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalespergen.style.display = 'flex'; 
+});
+cerrarespergen.addEventListener('click', () => {
+    modalespergen.style.display = 'none'; 
+});
+abririnfespergen.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalespergen.style.display = 'flex'; 
+});
 
-  const model = document.createElement('a-entity');
-  model.setAttribute('gltf-model', options.modelUrl || 'Modelos y animaciones/Testiculofinal.glb');
-  model.setAttribute('scale', options.scale || '0.05 0.05 0.05');
-  // position/rotation iniciales (puedes ajustar)
-  model.setAttribute('position', options.position || '0 0 0');
-  model.setAttribute('rotation', options.rotation || '-90 0 0');
-  model.setAttribute('gesture-handler', '');
+//Epididimo//
+const abrirepi = document.getElementById('epididimo-btn');
+const cerrarepi = document.getElementById('cerrar-epididimo-btn')
+const modaepi = document.getElementById('epididimo-moda');
 
-  // centrar el modelo cuando termine de cargar (si THREE está disponible)
-  model.addEventListener('model-loaded', () => {
-    try {
-      const object3D = model.getObject3D('mesh') || model.getObject3D('group') || model.object3D;
-      if (object3D && typeof THREE !== 'undefined') {
-        // calcular bounding box y desplazar el objeto para centrarlo en (0,0,0) del parent (marcador)
+abririnf2.onclick = function() {
+    modalinfoepi.style.display = "block";
+};
+spanCerrarepi.onclick = function() {
+    modalinfoepi.style.display = "none";
+};
+abrirepi.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modaepi.style.display = 'flex'; 
+});
+cerrarepi.addEventListener('click', () => {
+    modaepi.style.display = 'none'; 
+});
+abririnf2.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modaepi.style.display = 'flex'; 
+});
+
+//Todo lo del AR
+document.querySelectorAll('#menu-modelos button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const modelKey = btn.getAttribute('data-model');
+        const modelData = modelosInfo[modelKey];
+
+        modalTitulo.textContent = modelData.titulo;
+        modalDescripcion.textContent = modelData.descripcion;
+
+        startBtn.dataset.model = modelKey;
+
+        modal.style.display = 'flex';
+    });
+});
+
+cerrarModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+startBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    info.style.display = 'none';
+    exitBtn.style.display = 'flex';
+    arContainer.style.display = 'block';
+    menu__btn.classList.add('active');
+
+    const scene = document.createElement('a-scene');
+    scene.setAttribute('embedded', '');
+    scene.setAttribute('vr-mode-ui', 'enabled: false');
+    scene.setAttribute('renderer', 'logarithmicDepthBuffer: true');
+    scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
+
+
+    const marker = document.createElement('a-marker');
+    marker.setAttribute('type', 'pattern');
+    marker.setAttribute('url', 'markers/pattern-marcaCreeper.patt');
+
+    const model = document.createElement('a-entity');
+    model.setAttribute('gltf-model', 'Modelos y animaciones/Modeloacomodado.glb');
+    model.setAttribute('scale', '0.05 0.05 0.05');
+    model.setAttribute('position', '0 0 0');
+    model.setAttribute('rotation', '-90 0 0');
+    model.setAttribute('gesture-handler', '');
+
+model.addEventListener('model-loaded', () => {
+    const object3D = model.getObject3D('mesh');
+    if (object3D) {
         const box = new THREE.Box3().setFromObject(object3D);
         const center = box.getCenter(new THREE.Vector3());
-        // mover la geometría en sentido opuesto al centro para centrar
-        object3D.position.x -= center.x;
-        object3D.position.y -= center.y;
-        object3D.position.z -= center.z;
-        // opcional: bajar el modelo un poco si lo ves flotando (ajusta según necesites)
-        // object3D.position.y -= 0.02;
-        console.log('model-loaded -> centrado interno (siempre relativo al parent)');
-      } else {
-        console.warn('model-loaded: THREE o object3D no disponible');
-      }
-    } catch (err) {
-      console.error('Error al centrar el modelo:', err);
+        object3D.position.sub(center);
+        console.log("Modelo centrado en el marcador");
     }
-  });
-
-  marker.appendChild(model);
-  scene.appendChild(marker);
-
-  // cámara (puedes ajustar fov si quieres "zoom" distinto)
-  const camera = document.createElement('a-entity');
-  camera.setAttribute('camera', 'fov: 75'); // fov más pequeño = parecerá "menos zoom"
-  scene.appendChild(camera);
-
-  // añadir la escena al contenedor
-  arContainer.appendChild(scene);
-  return scene;
-}
-
-// --- Iniciar AR desde el botón ---
-safeAddEvent(startBtn, 'click', () => {
-  if (modal) modal.style.display = 'none';
-  if (info) info.style.display = 'none';
-  if (exitBtn) exitBtn.style.display = 'flex';
-  if (arContainer) arContainer.style.display = 'block';
-  if (menu__btn) menu__btn.classList.add('active');
-
-  // paths que tú usas (ajusta si tus carpetas/archivos están en otro lugar)
-  const chosenModel = (startBtn.dataset && startBtn.dataset.model) ? startBtn.dataset.model : 'testiculo';
-  // ejemplo: si quisieras cambiar ruta según modelo seleccionado:
-  const modelPaths = {
-    testiculo: { modelUrl: 'Modelos y animaciones/Testiculofinal.glb', markerUrl: 'markers/pattern-marcaCreeper.patt', scale: '0.05 0.05 0.05', rotation: '-90 0 0' },
-    // agrega más según necesites
-  };
-  const opts = modelPaths[chosenModel] || modelPaths['testiculo'];
-
-  // crear escena
-  // antes, aseguramos limpiar cualquier video/cámara previa
-  stopVideoTracks();
-  createARScene(opts);
 });
 
-// --- Salir de AR ---
-safeAddEvent(exitBtn, 'click', () => {
-  if (arContainer) {
+// IMPORTANTE: esto va fuera del model-loaded
+marker.appendChild(model);
+scene.appendChild(marker);
+
+const camera = document.createElement('a-entity');
+camera.setAttribute('camera', 'fov: 100');
+scene.appendChild(camera);
+
+arContainer.innerHTML = '';
+arContainer.appendChild(scene);
+
+});
+
+exitBtn.addEventListener('click', () => {
     arContainer.style.display = 'none';
     arContainer.innerHTML = '';
-  }
-  if (info) info.style.display = 'block';
-  if (exitBtn) exitBtn.style.display = 'none';
-  if (menu__btn) menu__btn.classList.remove('active');
+    info.style.display = 'block';
+    exitBtn.style.display = 'none';
+    menu__btn.classList.remove('active');
 
-  stopVideoTracks();
-
-  // recargar para dejar todo limpio (opcional)
-  setTimeout(() => { window.location.reload(); }, 300);
-});
+    const video = document.querySelector('video');
+    if (video && video.srcObject) {
+        video.srcObject.getTracks().forEach(t => t.stop());
+    }
 
 
-
-
-
-
-
+        setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
+  });
+  
 
 
 
