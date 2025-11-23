@@ -88,7 +88,7 @@ startBtn.addEventListener('click', () => {
     const model = document.createElement('a-entity');
 
     model.setAttribute('gltf-model', 'Modelos y animaciones/transparente.glb');
-    model.setAttribute('scale', '0.1 0.1 0.1');
+    model.setAttribute('scale', '1 1 1');
     model.setAttribute('gesture-handler', '');
 
     marker.appendChild(model);
@@ -118,6 +118,7 @@ exitBtn.addEventListener('click', () => {
 
     setTimeout(() => { location.reload(); }, 300);
 });
+
 
 
 
