@@ -83,10 +83,11 @@ transform: scale(1.05);
 }
 
 #ar-container {
-width: 100%;
-height: 500px;
-display: none;
+  width: 100%;
+  height: 100vh; 
+  display: none;
 }
+
 
 /*Este mendigo boton lo cambie tambien para que no saliera así como en gris xd*/
 #exit-ar {
@@ -346,6 +347,7 @@ opacity: 0;
   text-decoration: none;
   cursor: pointer; /*Esto es para que interactue con el ratón, en este caso para que se haga más oscuro*/
 }
+
 
 
 
