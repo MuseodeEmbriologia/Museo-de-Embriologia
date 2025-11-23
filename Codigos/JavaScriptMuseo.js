@@ -15,9 +15,7 @@ const cerrarModal = document.getElementById('cerrar-modal');
 const modalvideo = document.getElementById('Infovideo');
 const spanCerrar = document.getElementsByClassName("Cerrarinfvid")[0];
 
-
 const abririnf1 = document.getElementById('abririnf1');
-
 
 const modelosInfo = {
     testiculo: {
@@ -42,7 +40,6 @@ spanCerrar.onclick = function () {
     modalvideo.style.display = "none";
 };
 
-
 document.querySelectorAll('#menu-modelos button').forEach(btn => {
     btn.addEventListener('click', () => {
         const modelKey = btn.getAttribute('data-model');
@@ -62,9 +59,8 @@ cerrarModal.addEventListener('click', () => {
     modal.style.display = 'none';
 });
 
-// Iniciar AR
+// ---------- INICIO AR MEZCLADO ----------
 startBtn.addEventListener('click', () => {
-
     modal.style.display = 'none';
     info.style.display = 'none';
     exitBtn.style.display = 'flex';
@@ -73,40 +69,45 @@ startBtn.addEventListener('click', () => {
 
     const modelKey = startBtn.dataset.model;
 
+    // Limpiamos cualquier escena anterior
+    arContainer.innerHTML = '';
+
+    // Creamos la escena
     const scene = document.createElement('a-scene');
     scene.setAttribute('embedded', '');
     scene.setAttribute('vr-mode-ui', 'enabled: false');
     scene.setAttribute('renderer', 'logarithmicDepthBuffer: true');
     scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
+    scene.style.width = '100%';
+    scene.style.height = '100%';
 
+    // Creamos el marcador
     const marker = document.createElement('a-marker');
-
     marker.setAttribute('type', 'pattern');
     marker.setAttribute('patternUrl', 'markers/pattern-marcaCreeper.patt');
 
-
+    // Creamos el modelo
     const model = document.createElement('a-entity');
-
     model.setAttribute('gltf-model', 'Modelos y animaciones/transparente.glb');
-    model.setAttribute('scale', '1 1 1');
-        model.setAttribute('position', '0 0 0'); // Centrarlo
-    model.setAttribute('rotation', '0 0 0'); // Si quieres rotarl
+    model.setAttribute('scale', '0.5 0.5 0.5'); // Ajusta si es necesario
+    model.setAttribute('position', '0 0 0'); // Centrar
+    model.setAttribute('rotation', '0 0 0'); // Rotación inicial
     model.setAttribute('gesture-handler', '');
 
     marker.appendChild(model);
     scene.appendChild(marker);
 
+    // Agregamos cámara
     const camera = document.createElement('a-entity');
     camera.setAttribute('camera', '');
     scene.appendChild(camera);
 
-    arContainer.innerHTML = '';
     arContainer.appendChild(scene);
 });
+// ---------- FIN AR MEZCLADO ----------
 
 // Salida de AR
 exitBtn.addEventListener('click', () => {
-
     arContainer.style.display = 'none';
     arContainer.innerHTML = '';
     info.style.display = 'block';
@@ -115,14 +116,7 @@ exitBtn.addEventListener('click', () => {
 
     const video = document.querySelector('video');
     if (video && video.srcObject) {
-        video.srcObject.getTracks().forEach(t => t.stop());
-    }
-
-    setTimeout(() => { location.reload(); }, 300);
-});
-
-
-
+        video.srcObject.getTracks().forEach(t => t.
 
 
 
