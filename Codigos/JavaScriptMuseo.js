@@ -11,7 +11,7 @@ const exitBtn = document.getElementById('exit-ar');
     scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
     const marker = document.createElement('a-marker');
     marker.setAttribute('type', 'pattern');
-    marker.setAttribute('patternUrl', 'markers/pattern-marcaCreeper.patt');
+    marker.setAttribute('patternUrl', 'markers/pattern-marcaEs.patt');
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/transparente.glb');
     model.setAttribute('scale', '0.1 0.1 0.1');
@@ -30,4 +30,5 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
