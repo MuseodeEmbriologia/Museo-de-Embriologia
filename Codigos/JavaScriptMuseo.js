@@ -164,11 +164,25 @@ startBtn.addEventListener('click', () => {
     arContainer.style.display = 'block';
     menu__btn.classList.add('active');
 
+    const Pantallagrande = window.matchMedia('(min-width: 768px)');
     const scene = document.createElement('a-scene');
+    function seteandoAR(tam) {
+        let resolucion;
+        if (tam.matches) {
+            resolucion = '1024x768';
+            console.log("Ajustando el tamaño a computadora/tablet (1027x768)");
+        }
+        else {
+            resolucion = '640x480';
+            console.log("Ajustando el tamaño a telefono (640x480)");
+        }    
+    }
+    seteandoAR(Pantallagrande);
+    Pantallagrande.addEvenListener('change',seteandoAR);
     scene.setAttribute('embedded', '');
     scene.setAttribute('vr-mode-ui', 'enabled: false');
     scene.setAttribute('renderer', 'logarithmicDepthBuffer: true');
-    scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
+    scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false; videoTextureSize: ${resolucion};');
 
 
     const marker = document.createElement('a-marker');
@@ -221,6 +235,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
