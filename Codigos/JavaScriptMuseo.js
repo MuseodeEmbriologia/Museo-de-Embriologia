@@ -181,25 +181,27 @@ startBtn.addEventListener('click', () => {
     model.setAttribute('rotation', '-90 0 0');
     model.setAttribute('gesture-handler', '');
 
-    model.addEventListener('model-loaded', () => {
-        const object3D = model.getObject3D('mesh');
-        if (object3D) {
-            const box = new THREE.Box3().setFromObject(object3D);
-            const center = box.getCenter(new THREE.Vector3());
-            object3D.position.sub(center);
-            console.log("✔ Modelo centrado correctamente");
-        }
-    });
+model.addEventListener('model-loaded', () => {
+    const object3D = model.getObject3D('mesh');
+    if (object3D) {
+        const box = new THREE.Box3().setFromObject(object3D);
+        const center = box.getCenter(new THREE.Vector3());
+        object3D.position.sub(center);
+        console.log("Modelo centrado en el marcador");
+    }
+});
 
-    marker.appendChild(model);
-    scene.appendChild(marker);
+// IMPORTANTE: esto va fuera del model-loaded
+marker.appendChild(model);
+scene.appendChild(marker);
 
-    const camera = document.createElement('a-entity');
-    camera.setAttribute('camera', 'fov: 100');
-    scene.appendChild(camera);
+const camera = document.createElement('a-entity');
+camera.setAttribute('camera', 'fov: 100');
+scene.appendChild(camera);
 
-    arContainer.innerHTML = '';
-    arContainer.appendChild(scene);
+arContainer.innerHTML = '';
+arContainer.appendChild(scene);
+
 });
 
 exitBtn.addEventListener('click', () => {
@@ -218,6 +220,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
