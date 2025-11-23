@@ -1,58 +1,143 @@
-// ======================
-// Elementos principales
-// ======================
 const info = document.getElementById('info');
 const arContainer = document.getElementById('ar-container');
 const exitBtn = document.getElementById('exit-ar');
 
-// Menú hamburguesa
-const menu__btn = document.getElementsByClassName('menu__btn')[0];
+const menubtn = document.getElementsByClassName('menu__btn')
+const menu__btn = menubtn[0]
 
-// Modal principal
+//Modal de la pagina de inicio
 const modal = document.getElementById('modal-modelo');
 const modalTitulo = document.getElementById('modal-titulo');
 const modalDescripcion = document.getElementById('modal-descripcion');
 const startBtn = document.getElementById('start-ar');
 const cerrarModal = document.getElementById('cerrar-modal');
 
-// Modal video
+//Tubos seminiferos//
+const modalsem = document.getElementById('Infosem');
+const spanCerrarsem = document.getElementsByClassName('Cerrarinfsem')[0];
+
+//Recorrido//
 const modalvideo = document.getElementById('Infovideo');
 const spanCerrar = document.getElementsByClassName("Cerrarinfvid")[0];
-const abririnf1 = document.getElementById('abririnf1');
 
-// Modales laterales
-const abrirBtn = document.getElementById('redsem-btn');
-const abriresp = document.getElementById('esp-btn');
-const abrirepi = document.getElementById('epididimo-btn');
-const cerrarBtn = document.getElementById('cerrar-redsem-btn');
-const cerraresp = document.getElementById('cerrar-esp-btn');
-const cerrarepi = document.getElementById('cerrar-epididimo-btn')
-const moda = document.getElementById('redsem-moda');
-const modalesp = document.getElementById('esp-moda');
-const modaepi = document.getElementById('epididimo-moda');
+//Epididimo//
+const modalinfoepi = document.getElementById('Infoepi');
+const spanCerrarepi = document.getElementsByClassName("Cerrarinfepi")[0];
 
+//Espermatogenesis//
+const modalinfoespergen = document.getElementById('Infoespergen');
+const spanCerrarespergen = document.getElementsByClassName("Cerrarespergen")[0];
 
+// Información de cada modelo
 const modelosInfo = {
     testiculo: {
         titulo: "Modelos de espermatogénesis",
-        descripcion: `Al hacer click en "Iniciar Realidad Aumentada"...`
-    }
+        descripcion: 'Al hacer click en el botón de "Iniciar Realidad aumentada", se abrira una nueva pestaña donde necesitaremos que nos permitas acceder a tu cámara y que aceptes otros permisos, asegurate de aceptarlos para que todo funcione correctamente, en caso de no aceptarlos, puedes presionar el botón de salir y volver a la página de inicio. No nos quedamos con ningun dato de los usuarios, todo se borra al salir de la página'
+        }
+    };
+
+//Tubos seminiferos//
+const abrirBtn = document.getElementById('redsem-btn');
+const cerrarBtn = document.getElementById('cerrar-redsem-btn');
+const moda = document.getElementById('redsem-moda');
+
+abrirBtn.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    moda.style.display = 'flex'; 
+});
+cerrarBtn.addEventListener('click', () => {
+    moda.style.display = 'none'; 
+});
+abririnfsem.onclick = function() {
+    modalsem.style.display = "block";
+};
+spanCerrarepi.onclick = function() {
+    modalsem.style.display = "none";
 };
 
+abririnfsem.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalsem.style.display = 'flex'; 
+});
 
-abririnf1.onclick = function () {
+//Recorrido//
+const abrirrecorrido = document.getElementById('recorrido-btn');
+const cerrarrecorrido = document.getElementById('cerrar-recorrido-btn');
+const modalrecorrido = document.getElementById('recorrido-moda');
+
+abririnf1.onclick = function() {
     modalvideo.style.display = "block";
 };
-spanCerrar.onclick = function () {
+spanCerrar.onclick = function() {
     modalvideo.style.display = "none";
 };
+abrirrecorrido.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalrecorrido.style.display = 'flex'; 
+});
+cerrarrecorrido.addEventListener('click', () => {
+    modalrecorrido.style.display = 'none'; 
+});
+abririnf1.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalrecorrido.style.display = 'flex'; 
+});
+
+//Espermatogénesis//
+const abrirespergen = document.getElementById('espergen-btn');
+const cerrarespergen = document.getElementById('cerrar-espergen-btn');
+const modalespergen = document.getElementById('espergen-moda');
+
+abririnfespergen.onclick = function() {
+    modalinfoespergen.style.display = "block";
+};
+spanCerrarespergen.onclick = function() {
+    modalinfoespergen.style.display = "none";
+};
+abrirespergen.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalespergen.style.display = 'flex'; 
+});
+cerrarespergen.addEventListener('click', () => {
+    modalespergen.style.display = 'none'; 
+});
+abririnfespergen.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalespergen.style.display = 'flex'; 
+});
+
+//Epididimo//
+const abrirepi = document.getElementById('epididimo-btn');
+const cerrarepi = document.getElementById('cerrar-epididimo-btn')
+const modaepi = document.getElementById('epididimo-moda');
+
 abririnf2.onclick = function() {
     modalinfoepi.style.display = "block";
 };
 spanCerrarepi.onclick = function() {
     modalinfoepi.style.display = "none";
 };
+abrirepi.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modaepi.style.display = 'flex'; 
+});
+cerrarepi.addEventListener('click', () => {
+    modaepi.style.display = 'none'; 
+});
+abririnf2.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modaepi.style.display = 'flex'; 
+});
 
+//Todo lo del AR
 document.querySelectorAll('#menu-modelos button').forEach(btn => {
     btn.addEventListener('click', () => {
         const modelKey = btn.getAttribute('data-model');
@@ -118,42 +203,12 @@ exitBtn.addEventListener('click', () => {
     if (video && video.srcObject) {
         video.srcObject.getTracks().forEach(t => t.stop());
     }
-});
 
-abrirBtn.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    
-    moda.style.display = 'flex'; 
-});
-abriresp.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    
-    modalesp.style.display = 'flex'; 
-});
-abrirepi.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    
-    modaepi.style.display = 'flex'; 
-});
-cerrarBtn.addEventListener('click', () => {
-    moda.style.display = 'none'; 
-});
-cerraresp.addEventListener('click', () => {
-    modalesp.style.display = 'none'; 
-});
-cerrarepi.addEventListener('click', () => {
-    modaepi.style.display = 'none'; 
-});
-abririnf1.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    
-    modalesp.style.display = 'flex'; 
-});
-abririnf2.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    
-    modaepi.style.display = 'flex'; 
-});
+
+        setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
+  });
+  
+
 
 
 
