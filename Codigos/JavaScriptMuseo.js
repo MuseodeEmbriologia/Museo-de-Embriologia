@@ -1,6 +1,17 @@
 const arContainer = document.getElementById('ar-container');
 const startBtn = document.getElementById('start-ar');
 const exitBtn = document.getElementById('exit-ar');
+const expARbtn = document.querySelector('[data-model="testiculo"]');
+const modal = document.getElementById('modal-modelo');
+const closeModal = document.getElementById('cerrar-modal');
+
+expARbtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+});
+
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
 
 // Iniciar AR
 startBtn.addEventListener('click', () => {
@@ -41,3 +52,4 @@ exitBtn.addEventListener('click', () => {
     exitBtn.style.display = 'none';
     setTimeout(() => { window.location.reload(); }, 300);
 });
+
