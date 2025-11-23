@@ -174,7 +174,7 @@ startBtn.addEventListener('click', () => {
     marker.setAttribute('type', 'pattern');
     marker.setAttribute('url', 'markers/pattern-marcaCreeper.patt');
 
- const model = document.createElement('a-entity');
+    const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculofinal.glb');
     model.setAttribute('scale', '0.05 0.05 0.05');
     model.setAttribute('position', '0 0 0');
@@ -218,6 +218,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
