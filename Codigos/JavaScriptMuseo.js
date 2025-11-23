@@ -84,8 +84,8 @@ startBtn.addEventListener('click', () => {
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculo12.glb');
     model.setAttribute('scale', '0.1 0.1 0.1');
-    model.setAttribute('position', '0 -10 0');
-    model.setAttribute('rotation', '0 0 0');
+    model.setAttribute('position', '0 -20 0');
+    model.setAttribute('rotation', '0 90 0');
     model.setAttribute('gesture-handler', '');
 
     marker.appendChild(model);
@@ -124,6 +124,7 @@ abriresp.addEventListener('click', () => {
 cerraresp.addEventListener('click', () => {
     modalesp.style.display = 'none';
 });
+
 
 
 
