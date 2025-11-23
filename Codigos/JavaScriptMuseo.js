@@ -213,7 +213,7 @@ marker.appendChild(model);
 scene.appendChild(marker);
 
 const camera = document.createElement('a-entity');
-camera.setAttribute('camera', 'fov: 100');
+camera.setAttribute('camera', 'fov: 75');
 scene.appendChild(camera);
 
 arContainer.innerHTML = '';
@@ -237,6 +237,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
