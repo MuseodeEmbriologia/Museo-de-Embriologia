@@ -74,7 +74,8 @@ startBtn.addEventListener('click', () => {
     scene.setAttribute('embedded', '');
     scene.setAttribute('vr-mode-ui', 'enabled: false');
     scene.setAttribute('renderer', 'logarithmicDepthBuffer: true');
-    scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
+    scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false; videoTextureSize: 1024x768;');
+
 
     const marker = document.createElement('a-marker');
     marker.setAttribute('type', 'pattern');
@@ -123,6 +124,7 @@ abriresp.addEventListener('click', () => {
 cerraresp.addEventListener('click', () => {
     modalesp.style.display = 'none';
 });
+
 
 
 
