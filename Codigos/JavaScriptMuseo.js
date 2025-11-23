@@ -103,8 +103,8 @@ menu__btn.classList.add('active');
 
     if (modelKey === "testiculo") {
     marker.setAttribute('type', 'pattern');
-    marker.setAttribute('patternUrl', 'https://raw.githubusercontent.com/KelvinRiv/Proyecto/main/pattern-marcaCreeper.patt');
-    model.setAttribute('gltf-model', 'https://raw.githubusercontent.com/KelvinRiv/Proyecto/main/gears.glb');
+    marker.setAttribute('Url', 'markers/pattern-marcaCreeper.patt');
+    model.setAttribute('gltf-model', 'Modelos y animaciones/transparente.glb');
     model.setAttribute('scale', '0.1 0.1 0.1');
     }
 
@@ -140,4 +140,5 @@ menu__btn.classList.remove('active');
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
