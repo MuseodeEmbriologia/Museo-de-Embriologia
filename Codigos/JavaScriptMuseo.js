@@ -23,10 +23,13 @@ const abririnf1 = document.getElementById('abririnf1');
 // Modales laterales
 const abrirBtn = document.getElementById('redsem-btn');
 const abriresp = document.getElementById('esp-btn');
+const abrirepi = document.getElementById('epididimo-btn');
 const cerrarBtn = document.getElementById('cerrar-redsem-btn');
 const cerraresp = document.getElementById('cerrar-esp-btn');
+const cerrarepi = document.getElementById('cerrar-epididimo-btn')
 const moda = document.getElementById('redsem-moda');
 const modalesp = document.getElementById('esp-moda');
+const modaepi = document.getElementById('epididimo-moda');
 
 
 const modelosInfo = {
@@ -43,7 +46,12 @@ abririnf1.onclick = function () {
 spanCerrar.onclick = function () {
     modalvideo.style.display = "none";
 };
-
+abririnf2.onclick = function() {
+    modalinfoepi.style.display = "block";
+};
+spanCerrarepi.onclick = function() {
+    modalinfoepi.style.display = "none";
+};
 
 document.querySelectorAll('#menu-modelos button').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -112,17 +120,39 @@ exitBtn.addEventListener('click', () => {
     }
 });
 
-abrirBtn.addEventListener('click', () => {
-    moda.style.display = 'flex';
+abrirBtn.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    moda.style.display = 'flex'; 
+});
+abriresp.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalesp.style.display = 'flex'; 
+});
+abrirepi.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modaepi.style.display = 'flex'; 
 });
 cerrarBtn.addEventListener('click', () => {
-    moda.style.display = 'none';
-});
-abriresp.addEventListener('click', () => {
-    modalesp.style.display = 'flex';
+    moda.style.display = 'none'; 
 });
 cerraresp.addEventListener('click', () => {
-    modalesp.style.display = 'none';
+    modalesp.style.display = 'none'; 
+});
+cerrarepi.addEventListener('click', () => {
+    modaepi.style.display = 'none'; 
+});
+abririnf1.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modalesp.style.display = 'flex'; 
+});
+abririnf2.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modaepi.style.display = 'flex'; 
 });
 
 
