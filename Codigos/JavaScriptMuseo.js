@@ -89,6 +89,8 @@ startBtn.addEventListener('click', () => {
 
     model.setAttribute('gltf-model', 'Modelos y animaciones/transparente.glb');
     model.setAttribute('scale', '1 1 1');
+        model.setAttribute('position', '0 0 0'); // Centrarlo
+    model.setAttribute('rotation', '0 0 0'); // Si quieres rotarl
     model.setAttribute('gesture-handler', '');
 
     marker.appendChild(model);
@@ -118,6 +120,7 @@ exitBtn.addEventListener('click', () => {
 
     setTimeout(() => { location.reload(); }, 300);
 });
+
 
 
 
