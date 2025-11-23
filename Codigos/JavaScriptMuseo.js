@@ -82,7 +82,7 @@ startBtn.addEventListener('click', () => {
 
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculo12.glb');
-    model.setAttribute('scale', '1 1 1');
+    model.setAttribute('scale', '0.2 0.2 0.2');
     model.setAttribute('position', '0 0 0');
     model.setAttribute('rotation', '0 0 0');
     model.setAttribute('gesture-handler', '');
@@ -123,6 +123,7 @@ abriresp.addEventListener('click', () => {
 cerraresp.addEventListener('click', () => {
     modalesp.style.display = 'none';
 });
+
 
 
 
