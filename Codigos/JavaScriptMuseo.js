@@ -177,7 +177,7 @@ startBtn.addEventListener('click', () => {
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculo23.glb');
     model.setAttribute('scale', '0.05 0.05 0.05');
-    model.setAttribute('position', '0 -0.5 0');
+    model.setAttribute('position', '-2 -5 0');
     model.setAttribute('rotation', '-90 0 0');
     model.setAttribute('gesture-handler', '');
 
@@ -208,6 +208,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
