@@ -1,10 +1,9 @@
 const info = document.getElementById('info');
 const arContainer = document.getElementById('ar-container');
 const exitBtn = document.getElementById('exit-ar');
-
 const menubtn = document.getElementsByClassName('menu__btn')
 const menu__btn = menubtn[0]
-
+const abririnf1 = document.getElementById('abririnf1');
   // Modal
 const modal = document.getElementById('modal-modelo');
 const modalTitulo = document.getElementById('modal-titulo');
@@ -139,6 +138,7 @@ menu__btn.classList.remove('active');
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
