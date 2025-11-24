@@ -374,6 +374,13 @@ opacity: 0;
   max-width: 500px;
 }
 
+.textoinfor li{
+    text-align: justify;
+    line-height: 1.6; /*Es la separación de las lineas en este caso del texto de la informacion del video*/
+    color: #2f2f2f;
+    max-width: 500px;
+}
+
 #recorrido-moda button{
   background-color: #709078;
   color: #000;
@@ -587,4 +594,5 @@ opacity: 0;
   background-color: #5d8874;
   transform: scale(1.05);
 }
+
 
