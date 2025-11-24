@@ -197,7 +197,6 @@ startBtn.addEventListener('click', () => {
     hitbox.setAttribute('gesture-handler', '');
     hitbox.setAttribute('class','interactivo');
     hitbox.setAttribute('position', '0 0 0');
-    hitbox.setAttribute('scale', '0.1 0.1 0.1');
     
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculofinal.glb');
@@ -244,6 +243,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
