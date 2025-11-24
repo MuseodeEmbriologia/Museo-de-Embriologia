@@ -213,7 +213,7 @@ model.addEventListener('model-loaded', () => {
     }
 });
 
-// IMPORTANTE: esto va fuera del model-loaded
+
 hitbox.appendChild(model);
 marker.appendChild(hitbox);
 scene.appendChild(marker);
@@ -243,6 +243,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
