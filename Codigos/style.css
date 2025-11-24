@@ -212,7 +212,9 @@ opacity: 0;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
   transition-duration: .25s;
   z-index: 1;
+  pointer-events: none;
 }
+
 .menu__item {
   display: block;
   padding: 12px 24px;
@@ -222,7 +224,7 @@ opacity: 0;
   font-weight: 600;
   text-decoration: none;
   transition-duration: .25s;
-
+  pointer-events: auto;
 }
 .menu__item:hover {
   background-color:#5d8874;
@@ -601,6 +603,7 @@ opacity: 0;
   background-color: #5d8874;
   transform: scale(1.05);
 }
+
 
 
 
