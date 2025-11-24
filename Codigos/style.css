@@ -85,6 +85,7 @@ transform: scale(1.05);
 width: 100%;
 height: 500px;
 display: none;
+    z-index: 200;
 }
 
 /*Este mendigo boton lo cambie tambien para que no saliera así como en gris xd*/
@@ -106,6 +107,7 @@ align-items: center;
 gap: 8px;
 box-shadow: 0 4px 12px #709078;
 transition: background-color 0.3s ease, transform 0.2s ease;
+    pointer-events: auto;
 }
 
 #exit-ar:hover {
@@ -619,6 +621,7 @@ opacity: 0;
   background-color: #5d8874;
   transform: scale(1.05);
 }
+
 
 
 
