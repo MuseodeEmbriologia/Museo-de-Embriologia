@@ -197,10 +197,11 @@ startBtn.addEventListener('click', () => {
     hitbox.setAttribute('gesture-handler', '');
     hitbox.setAttribute('class','interactivo');
     hitbox.setAttribute('position', '0 0 0');
+    model.setAttribute('scale', '0.1 0.1 0.1');
     
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculofinal.glb');
-    model.setAttribute('scale', '0.2 0.2 0.2');
+    model.setAttribute('scale', '0.05 0.05 0.05');
     model.setAttribute('rotation', '0 0 0');
 
 model.addEventListener('model-loaded', () => {
@@ -243,6 +244,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
