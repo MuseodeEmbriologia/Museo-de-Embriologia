@@ -189,7 +189,7 @@ startBtn.addEventListener('click', () => {
 
     const marker = document.createElement('a-marker');
     marker.setAttribute('type', 'pattern');
-    marker.setAttribute('url', 'markers/pattern-marcaCreeper.patt');
+    marker.setAttribute('url', 'markers/pattern-marcaEs.patt');
 
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Modeloacomodado.glb');
@@ -237,6 +237,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
