@@ -192,10 +192,10 @@ startBtn.addEventListener('click', () => {
     marker.setAttribute('url', 'markers/pattern-marcaT.patt');
 
     const model = document.createElement('a-entity');
-    model.setAttribute('gltf-model', 'Modelos y animaciones/Modeloacomodado.glb');
+    model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculofinal.glb');
     model.setAttribute('scale', '0.05 0.05 0.05');
     model.setAttribute('position', '0 0 0');
-    model.setAttribute('rotation', '0 0 -90');
+    model.setAttribute('rotation', '0 0 0');
     model.setAttribute('gesture-handler', '');
 
 model.addEventListener('model-loaded', () => {
@@ -237,6 +237,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
