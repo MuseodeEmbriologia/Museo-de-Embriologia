@@ -325,6 +325,7 @@ opacity: 0;
   transition: 0.3s;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   float:center;
+    pointer-events: auto;
 }
 
 #redsem-moda button:hover {
@@ -400,6 +401,7 @@ opacity: 0;
   transition: 0.3s;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   float:center;
+    pointer-events: auto;
 }
 
 #recorrido-moda button:hover {
@@ -501,6 +503,7 @@ opacity: 0;
   transition: 0.3s;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   float:center;
+    pointer-events: auto;
 }
 
 #espergen-moda button:hover {
@@ -609,12 +612,14 @@ opacity: 0;
   transition: 0.3s;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   float:center;
+    pointer-events: auto;
 }
 
 #epididimo-moda button:hover {
   background-color: #5d8874;
   transform: scale(1.05);
 }
+
 
 
 
