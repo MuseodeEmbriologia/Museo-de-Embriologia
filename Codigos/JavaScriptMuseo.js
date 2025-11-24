@@ -190,13 +190,18 @@ startBtn.addEventListener('click', () => {
     const marker = document.createElement('a-marker');
     marker.setAttribute('type', 'pattern');
     marker.setAttribute('url', 'markers/pattern-marcaT.patt');
+    marker.setAttribute('cursor', 'rayOrigin: mouse');
+    marker.setAttribute('raycaster', 'objects: .interactivo')
 
+    const hitbox = document.createElement('a-entity');
+    hitbox.setAttribute('gesture-handler', '');
+    hitbox.setAttribute('class','interactivo');
+    hitbox.setAttribute('position', '0 0 0');
+    
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculofinal.glb');
     model.setAttribute('scale', '0.05 0.05 0.05');
-    model.setAttribute('position', '0 0 0');
     model.setAttribute('rotation', '0 0 0');
-    model.setAttribute('gesture-handler', '');
 
 model.addEventListener('model-loaded', () => {
     const object3D = model.getObject3D('mesh');
@@ -209,7 +214,8 @@ model.addEventListener('model-loaded', () => {
 });
 
 // IMPORTANTE: esto va fuera del model-loaded
-marker.appendChild(model);
+hitbox.appendChild(model);
+marker.appendChild(hitbox);
 scene.appendChild(marker);
 
 const camera = document.createElement('a-entity');
@@ -237,6 +243,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
