@@ -166,8 +166,6 @@ startBtn.addEventListener('click', () => {
 
     
     const scene = document.createElement('a-scene');
-    
-    const Pantallagrande = window.matchMedia('(min-width: 768px)');
     scene.setAttribute('embedded', '');
     scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
     scene.setAttribute('gesture-detector', '');
@@ -212,6 +210,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
