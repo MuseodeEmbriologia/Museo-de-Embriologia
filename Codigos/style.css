@@ -4,10 +4,12 @@ background: #192338;
 background: linear-gradient(180deg,rgba(25, 35, 56, 1) 0%, rgba(30, 46, 79, 1) 50%, rgba(49, 72, 122, 1) 100%);
 font-family: Arial, sans-serif;
 margin: 0;
-padding: 0px;
+padding: 20px;
 min-height: auto; 
 text-align: center;
 align-items: center;
+display: flex;
+justify-content: center;
 }
 
 /*Estos ya tienen punto porque son elementos que añades al código, por eso tienen nombres diferentes y así*/
@@ -624,6 +626,7 @@ opacity: 0;
   background-color: #5d8874;
   transform: scale(1.05);
 }
+
 
 
 
