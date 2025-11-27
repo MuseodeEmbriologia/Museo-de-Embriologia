@@ -7,6 +7,8 @@ margin: 0;
 padding: 0px;
 min-height: auto; 
 text-align: center;
+align-items: center;
+display: flex;
 }
 
 /*Estos ya tienen punto porque son elementos que añades al código, por eso tienen nombres diferentes y así*/
@@ -623,6 +625,7 @@ opacity: 0;
   background-color: #5d8874;
   transform: scale(1.05);
 }
+
 
 
 
