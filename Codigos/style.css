@@ -7,6 +7,8 @@ margin: 0;
 padding: 20px;
 min-height: auto; 
 text-align: center;
+display: flex;
+align-items: center;
 }
 
 /*Estos ya tienen punto porque son elementos que añades al código, por eso tienen nombres diferentes y así*/
