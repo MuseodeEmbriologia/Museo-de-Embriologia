@@ -193,7 +193,7 @@ scene.appendChild(marker);
       marker2.setAttribute('url', 'markers/pattern-marcaCreeper.patt');
       
       const model2 = document.createElement('a-entity');
-      model2.setAttribute('gltf-model', 'https://github.com/Jesus-2705/prueba2.github.io/raw/refs/heads/main/models/embriologia/ARM3.glb');
+      model2.setAttribute('gltf-model', 'https://raw.githubusercontent.com/Jesus-2705/prueba2/main/models/embriologia/ARM3.glb');
     //https://raw.githubusercontent.com/KelvinRiv/Proyecto/main/RedSeminifera.glb
       model2.setAttribute('scale', '0.1 0.1 0.1');
       model2.setAttribute('rotation', '-90 0 0');
@@ -240,6 +240,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
