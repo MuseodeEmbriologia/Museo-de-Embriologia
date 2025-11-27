@@ -4,11 +4,11 @@ background: #192338;
 background: linear-gradient(180deg,rgba(25, 35, 56, 1) 0%, rgba(30, 46, 79, 1) 50%, rgba(49, 72, 122, 1) 100%);
 font-family: Arial, sans-serif;
 margin: 0;
-padding: 20px;
+padding: 0px;
 min-height: auto; 
 text-align: center;
-display: flex;
 align-items: center;
+display: flex;
 }
 
 /*Estos ya tienen punto porque son elementos que añades al código, por eso tienen nombres diferentes y así*/
@@ -85,9 +85,9 @@ transform: scale(1.05);
 
 #ar-container {
 width: 100%;
-height: 100hv;
+height: 500px;
 display: none;
-z-index: 100;
+    z-index: 100;
 }
 
 /*Este mendigo boton lo cambie tambien para que no saliera así como en gris xd*/
@@ -625,6 +625,8 @@ opacity: 0;
   background-color: #5d8874;
   transform: scale(1.05);
 }
+
+
 
 
 
