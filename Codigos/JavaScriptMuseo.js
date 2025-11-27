@@ -162,8 +162,8 @@ cerrarModal.addEventListener('click', () => {
 startBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     info.style.display = 'none';
-    exitBtn.style.display = 'flex';
     arContainer.style.display = 'block';
+    exitBtn.style.display = 'flex';
     menu__btn.classList.add('active');
 
     
@@ -187,6 +187,31 @@ startBtn.addEventListener('click', () => {
 
 marker.appendChild(model);
 scene.appendChild(marker);
+
+     const marker2 = document.createElement('a-marker');
+      marker2.setAttribute('type', 'pattern');
+      marker2.setAttribute('url', 'markers/pattern-marcaCreeper.patt');
+      
+      const model2 = document.createElement('a-entity');
+      model2.setAttribute('gltf-model', 'models/embriologia/ARM3.glb');
+      model2.setAttribute('scale', '0.1 0.1 0.1');
+      model2.setAttribute('rotation', '-90 0 0');
+      model2.setAttribute('gesture-handler', '');
+      
+      marker2.appendChild(model2);
+      scene.appendChild(marker2);
+      const marker3 = document.createElement('a-marker');
+      marker3.setAttribute('type', 'pattern');
+      marker3.setAttribute('url', 'markers/pattern-marcaEs.patt');
+      
+      const model3 = document.createElement('a-entity');
+      model3.setAttribute('gltf-model', 'models/embriologia/Espermatogenesis5.glb');
+      model3.setAttribute('scale', '0.1 0.1 0.1');
+      model3.setAttribute('rotation', '-90 0 0');
+      model3.setAttribute('gesture-handler', '');
+      
+      marker3.appendChild(model3);
+      scene.appendChild(marker3);
 
 const camera = document.createElement('a-entity');
 camera.setAttribute('camera', '');
@@ -214,6 +239,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
