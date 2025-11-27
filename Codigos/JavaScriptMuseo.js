@@ -34,7 +34,7 @@ const spanCerrarespergen = document.getElementsByClassName("Cerrarespergen")[0];
 const modelosInfo = {
     testiculo: {
         titulo: "Modelos de espermatogénesis",
-        descripcion: 'Al hacer click en el botón de "Iniciar Realidad aumentada", se abrira una nueva pestaña donde necesitaremos que nos permitas acceder a tu cámara y que aceptes otros permisos, asegurate de aceptarlos para que todo funcione correctamente, en caso de no aceptarlos, puedes presionar el botón de salir y volver a la página de inicio. No nos quedamos con ningun dato de los usuarios, todo se borra al salir de la página'
+        descripcion: 'Al hacer click en el botón de "Iniciar Realidad aumentada", se abrira una nueva pestaña donde necesitaremos que nos permitas acceder a tu cámara y que aceptes otros permisos, asegurate de aceptarlos para que todo funcione correctamente, en caso de no aceptarlos, puedes presionar el botón de salir y volver a la página de inicio. No nos quedamos con ningun dato de los usuarios, todo se borra al salir de la página. Si cuentas con un dispositivo android, da click en el botón de abajo para observar los modelos'
         }
     };
 
@@ -240,6 +240,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
