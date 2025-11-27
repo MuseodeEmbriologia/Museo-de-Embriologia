@@ -84,8 +84,6 @@ transform: scale(1.05);
 #ar-container {
 width: 100%;
 height: 100hv;
-display: grid;
-place-items: center;
 z-index: 100;
 }
 
@@ -624,6 +622,7 @@ opacity: 0;
   background-color: #5d8874;
   transform: scale(1.05);
 }
+
 
 
 
