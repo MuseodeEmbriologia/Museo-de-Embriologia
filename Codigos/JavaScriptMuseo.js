@@ -1,4 +1,5 @@
 
+
 const info = document.getElementById('info');
 const arContainer = document.getElementById('ar-container');
 const exitBtn = document.getElementById('exit-ar');
@@ -166,6 +167,8 @@ startBtn.addEventListener('click', () => {
 
     
     const scene = document.createElement('a-scene');
+    
+    const Pantallagrande = window.matchMedia('(min-width: 768px)');
     scene.setAttribute('embedded', '');
     scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
     scene.setAttribute('gesture-detector', '');
@@ -176,7 +179,7 @@ startBtn.addEventListener('click', () => {
 
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculofinal.glb');
-    model.setAttribute('scale', '0.2 0.2 0.2');
+    model.setAttribute('scale', '0.05 0.05 0.05');
     model.setAttribute('rotation', '0 0 0');
     model.setAttribute('position', '0 0 0');
     model.setAttribute('gesture-handler', '');
@@ -210,6 +213,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
