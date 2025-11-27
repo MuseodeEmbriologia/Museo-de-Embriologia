@@ -140,7 +140,7 @@ abririnf2.addEventListener('click', (e) => {
 });
 
 //Todo lo del AR
-setTimeout(() => {
+//setTimeout(() => {
 document.querySelectorAll('#menu-modelos button').forEach(btn => {
     btn.addEventListener('click', () => {
         const modelKey = btn.getAttribute('data-model');
@@ -196,7 +196,7 @@ arContainer.innerHTML = '';
 arContainer.appendChild(scene);
 
 });
-}, 100);
+//}, 100);
 exitBtn.addEventListener('click', () => {
     arContainer.style.display = 'none';
     arContainer.innerHTML = '';
@@ -214,6 +214,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
