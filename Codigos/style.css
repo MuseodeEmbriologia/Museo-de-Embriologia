@@ -6,8 +6,7 @@ font-family: Arial, sans-serif;
 margin: 0;
 padding: 0px;
 min-height: auto; 
-
-
+text-align: center;
 }
 
 /*Estos ya tienen punto porque son elementos que añades al código, por eso tienen nombres diferentes y así*/
@@ -61,7 +60,6 @@ color: #333030;
     padding: 20px; 
     box-shadow: 0 30px 40px rgba(0,0,0,0.1);
     box-sizing: border-box;
-    
 }
 
 button {
@@ -625,6 +623,7 @@ opacity: 0;
   background-color: #5d8874;
   transform: scale(1.05);
 }
+
 
 
 
