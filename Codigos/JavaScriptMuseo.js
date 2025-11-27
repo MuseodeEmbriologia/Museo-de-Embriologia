@@ -180,7 +180,7 @@ startBtn.addEventListener('click', () => {
 
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculofinal.glb');
-    model.setAttribute('scale', '0.02 0.02 0.02');
+    model.setAttribute('scale', '0.05 0.05 0.05');
     model.setAttribute('rotation', '0 0 0');
     model.setAttribute('position', '0 0 0');
     model.setAttribute('gesture-handler', '');
@@ -196,7 +196,7 @@ arContainer.innerHTML = '';
 arContainer.appendChild(scene);
 
 });
-}
+}, 100);
 exitBtn.addEventListener('click', () => {
     arContainer.style.display = 'none';
     arContainer.innerHTML = '';
@@ -214,6 +214,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
