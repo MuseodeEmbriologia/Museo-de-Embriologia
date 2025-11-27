@@ -169,57 +169,25 @@ startBtn.addEventListener('click', () => {
     
     const Pantallagrande = window.matchMedia('(min-width: 768px)');
     scene.setAttribute('embedded', '');
-    scene.setAttribute('vr-mode-ui', 'enabled: false');
-    scene.setAttribute('renderer', 'logarithmicDepthBuffer: true');
-    let resolucion;
-    function seteandoAR(tam) {
-        if (tam.matches) {
-            resolucion = '1024x768';
-            console.log("Ajustando el tamaño a computadora/tablet (1027x768)");
-        }
-        else {
-            resolucion = '640x480';
-            console.log("Ajustando el tamaño a telefono (640x480)");
-        }    
-    }
-    seteandoAR(Pantallagrande);
-    Pantallagrande.addEventListener('change',seteandoAR);
-    scene.setAttribute('arjs', `sourceType: webcam; debugUIEnabled: false; videoTextureSize: ${resolucion};`);
-
+    scene.setAttribute('arjs', 'sourceType: webcam; debugUIEnabled: false;');
+    scene.setAttribute('gesture-detector', '');
 
     const marker = document.createElement('a-marker');
     marker.setAttribute('type', 'pattern');
     marker.setAttribute('url', 'markers/pattern-marcaT.patt');
-    marker.setAttribute('cursor', 'rayOrigin: mouse');
-    marker.setAttribute('raycaster', 'objects: .interactivo')
 
-    const hitbox = document.createElement('a-entity');
-    hitbox.setAttribute('gesture-handler', '');
-    hitbox.setAttribute('class','interactivo');
-    hitbox.setAttribute('position', '0 0 0');
-    
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model', 'Modelos y animaciones/Testiculofinal.glb');
     model.setAttribute('scale', '0.05 0.05 0.05');
     model.setAttribute('rotation', '0 0 0');
+    model.setAttribute('position', '0 0 0');
+    model.setAttribute('gesture-handler', '');
 
-model.addEventListener('model-loaded', () => {
-    const object3D = model.getObject3D('mesh');
-    if (object3D) {
-        const box = new THREE.Box3().setFromObject(object3D);
-        const center = box.getCenter(new THREE.Vector3());
-        object3D.position.sub(center);
-        console.log("Modelo centrado en el marcador");
-    }
-});
-
-
-hitbox.appendChild(model);
-marker.appendChild(hitbox);
+marker.appendChild(model);
 scene.appendChild(marker);
 
 const camera = document.createElement('a-entity');
-camera.setAttribute('camera', 'fov: 75');
+camera.setAttribute('camera', '');
 scene.appendChild(camera);
 
 arContainer.innerHTML = '';
@@ -234,15 +202,17 @@ exitBtn.addEventListener('click', () => {
     exitBtn.style.display = 'none';
     menu__btn.classList.remove('active');
 
-    const video = document.querySelector('video');
-    if (video && video.srcObject) {
-        video.srcObject.getTracks().forEach(t => t.stop());
-    }
+      const video = document.querySelector('video');
+      if (video && video.srcObject) {
+        video.srcObject.getTracks().forEach(track => track.stop());
+        video.srcObject = null;
+      }
 
 
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
