@@ -140,18 +140,18 @@ abririnf2.addEventListener('click', (e) => {
 });
 
 //Todo lo del AR
-//document.querySelectorAll('#menu-modelos button').forEach(btn => {
-    //btn.addEventListener('click', () => {
-        //const modelKey = btn.getAttribute('data-model');
-        //const modelData = modelosInfo[modelKey];
+document.querySelectorAll('#menu-modelos button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const modelKey = btn.getAttribute('data-model');
+        const modelData = modelosInfo[modelKey];
 
         modalTitulo.textContent = modelData.titulo;
         modalDescripcion.textContent = modelData.descripcion;
 
-        //startBtn.dataset.model = modelKey;
+        startBtn.dataset.model = modelKey;
 
         modal.style.display = 'flex';
-    //});
+    });
 });
 
 cerrarModal.addEventListener('click', () => {
@@ -239,6 +239,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
