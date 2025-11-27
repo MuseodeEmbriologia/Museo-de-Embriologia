@@ -3,8 +3,8 @@ const info = document.getElementById('info');
 const arContainer = document.getElementById('ar-container');
 const exitBtn = document.getElementById('exit-ar');
 
-const menubtn = document.getElementsByClassName('menu__btn')
-const menu__btn = menubtn[0]
+const menubtn = document.getElementsByClassName('menu__btn');
+const menu__btn = menubtn[0];
 
 //Modal de la pagina de inicio
 const modal = document.getElementById('modal-modelo');
@@ -212,6 +212,7 @@ exitBtn.addEventListener('click', () => {
         setTimeout(() => { window.location.reload(); }, 300); /*Este script es el que hace que vuelva a la página principal*/
   });
   
+
 
 
 
