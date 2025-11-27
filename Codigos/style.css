@@ -6,9 +6,9 @@ font-family: Arial, sans-serif;
 margin: 0;
 padding: 0px;
 min-height: auto; 
-display: grid;
-place-items: center; 
-height: 100hv;
+text-align: center;
+align-items: center;
+display: flex;
 }
 
 /*Estos ya tienen punto porque son elementos que añades al código, por eso tienen nombres diferentes y así*/
