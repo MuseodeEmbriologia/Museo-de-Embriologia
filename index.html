@@ -310,7 +310,25 @@
 </head>
 
 <body>
+  <div id="registro-container">
+    <h2>Registro de acceso</h2>
+  
+    <form id="registroForm">
+      <input type="text" id="nombre" placeholder="Tu nombre" required><br><br>
+  
+      <select id="ocupacion" required>
+        <option value="">¿A qué te dedicas?</option>
+        <option value="Estudiante">Estudiante</option>
+        <option value="Profesional de salud">Profesional de salud</option>
+        <option value="Docente">Docente</option>
+        <option value="Público general">Público general</option>
+      </select><br><br>
+  
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
 
+  <div id="contenidoAR" style="display:none;">
   <!-- MENÚ HAMBURGUESA -->
   <div class="hamburger-menu">
     <input id="menu__ham" type="checkbox" />
@@ -631,6 +649,45 @@ abririnfsem.addEventListener('click', (e) => {
       });
     });
   </script>
+    </div>
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAjbhaqdE8XLeTlY1kaajTIAAeYYIvT3bg",
+  authDomain: "embriologia-947ae.firebaseapp.com",
+  projectId: "embriologia-947ae",
+  storageBucket: "embriologia-947ae.firebasestorage.app",
+  messagingSenderId: "474010141336",
+  appId: "1:474010141336:web:bd36aa8e1d5a17f1c506ed",
+  measurementId: "G-QMP8SHGZXN"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+document.getElementById("registroForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value;
+  const ocupacion = document.getElementById("ocupacion").value;
+
+  try {
+    await addDoc(collection(db, "accesos"), {
+      nombre: nombre,
+      ocupacion: ocupacion,
+      fecha: new Date(),
+      dispositivo: navigator.userAgent
+    });
+
+    document.getElementById("registro-container").style.display = "none";
+    document.getElementById("contenidoAR").style.display = "block";
+
+  } catch (error) {
+    console.error("Error:", error);
+  }
+});
 </body>
 </html>
 
