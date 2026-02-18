@@ -178,7 +178,7 @@
       border-radius: 15px;
       max-width: 400px;
       width: 90%;
-      max-height: 95svh;
+      max-height: 90svh;
       min-height: 85svh;
       overflow-y: auto;
       margin: 120px auto 40px auto;
@@ -310,12 +310,13 @@
 </head>
 
 <body>
+
   <div id="registro-container">
     <h2>Registro de acceso</h2>
-  
+
     <form id="registroForm">
       <input type="text" id="nombre" placeholder="Tu nombre" required><br><br>
-  
+
       <select id="ocupacion" required>
         <option value="">¿A qué te dedicas?</option>
         <option value="Estudiante">Estudiante</option>
@@ -323,12 +324,12 @@
         <option value="Docente">Docente</option>
         <option value="Público general">Público general</option>
       </select><br><br>
-  
+
       <button type="submit">Entrar</button>
     </form>
-  </div>
+    </div>
 
-  <div id="contenidoAR" style="display:none;">
+<div id="contenidoAR" style="display: none;">
   <!-- MENÚ HAMBURGUESA -->
   <div class="hamburger-menu">
     <input id="menu__ham" type="checkbox" />
@@ -346,20 +347,20 @@
       <li class="menu-divider"></li>
 
       <li class="menu-section">Ovogénesis</li>
-      <li><a class="menu__item" href="#modelo5">apartado1</a></li>
-      <li><a class="menu__item" href="#modelo6">apartado2</a></li>
-      <li><a class="menu__item" href="#modelo7">apartado3</a></li>
-      <li><a class="menu__item" href="#modelo8">apartado4</a></li>
+      <li><a class="menu__item" href="#modelo5">Por definir</a></li>
+      <li><a class="menu__item" href="#modelo6">Por definir</a></li>
+      <li><a class="menu__item" href="#modelo7">Por definir</a></li>
+      <li><a class="menu__item" href="#modelo8">Por definir</a></li>
     </ul>
   </div>
 
   <!-- INFO PRINCIPAL -->
   <div id="info">
-    <h1>Espermatogénesis</h1>
+    <h1>Museo de Embriología</h1>
     <div class="titulo-con-imagenes">
-      <img src="imagenes/Logoembrio.jpeg" alt="Logo Embrio">
+      <img src="Marca%20de%20agua%20museo.png" alt="Marca de agua museo">
     </div>
-    <h2>Museo de Embriología</h2>
+    <h2>Espermatogénesis</h2>
     <h3>Universidad Autónoma de Chihuahua</h3>
     <p>La embriología es el estudio del desarrollo de un embrión desde la fecundación del óvulo hasta la octava semana de gestación. Este campo científico es fundamental para comprender cómo se forman los organismos y las estructuras celulares básicas que dan origen a la vida.</p>
     <p>Con esta página usted podrá obtener una experiencia de realidad aumentada donde podrá ver modelos 3D animados de la espermatogénesis. Simplemente inicie la cámara y apunte al marcador Hiro para visualizar el contenido.</p>
@@ -377,7 +378,7 @@
       model-position="15m 0m 0m">
     </model-viewer>
          <button id ="abririnfsem">Información</button>
-          <a href="#" class ="INFBT">Cerrar</a>
+          <a href="#" class ="INFBT">Salir</a>
           <div id="Infosem" class = "modalsem">
             <div class ="ModalSemCont">
             <span class="Cerrarinfsem">&times;</span>
@@ -423,7 +424,7 @@ Bibliografía
 •	Moore KL, Persaud TVN, Torchia MG, editores. Embriología Clínica. 11a ed. Elsevier; 2020.
 </p>
 </div>
-    <a href="#" class="exit-btn">Salir</a>
+    <a href="#" class ="INFBT">Salir</a>
   </div>
 
   <div id="modelo3" class="section">
@@ -452,13 +453,19 @@ REFERENCIAS
 ● Young, B., Heath, J. W., & Wheater, P. R. (2014). Wheater. Histología funcional: texto y atlas en color (6a ed.). Elsevier España.
 ● Ross, M. H., & Pawlina, W. (2020). Histología: Texto y atlas. Correlación con biología molecular y celular (8a ed.). Wolters Kluwer.</p>
       </div>
-    <a href="#" class="exit-btn">Salir</a>
+    <a href="#" class ="INFBT">Salir</a>
   </div>
 
   <div id="modelo4" class="section">
-    <h2>Epidídimo</h2>
     <model-viewer src="Modelos y animaciones/EpididimoFinal.glb" auto-rotate camera-controls style="width:300px; height:300px;"></model-viewer>
-    <div class="info-box">
+    <button id ="abririnf2">Información</button>
+    <a href="#" class ="INFBT">Salir</a>
+          <div id="Infoepi" class = "modalsem">
+            <div class ="ModalSemCont">
+            <span class="Cerrarinfepi">&times;</span>
+                <h2>Epidídimo</h2>
+                  <div class="textosem">
+                    <!--<img src="Marca%20de%20agua%20museo.png" alt="Marca de agua museo" class="marca-de-agua">-->
     <p>El epidídimo es una estructura tubular, firme y alargada que se sitúa sobre la cara
 superior y el borde posterolateral del testículo. Presenta una configuración en
 forma de "C" o coma. Aunque externamente parece una estructura sólida, está
@@ -509,8 +516,10 @@ ed.). Elsevier.
  Carlson, B. M. (2019). Embriología Humana y Biología del Desarrollo (6.ª ed.).
 Elsevier</p>
       </div>
-    <a href="#" class="exit-btn">Salir</a>
   </div>
+  </div>
+</div>
+
     <div id="modelo5" class="section">
     <h2>1 de ovogénesis</h2>
     <model-viewer src="models/embriologia/EpididimoFinal2.glb" auto-rotate camera-controls style="width:300px; height:300px;"></model-viewer>
@@ -558,8 +567,6 @@ const abrirBtn = document.getElementById('redsem-btn');
 const cerrarBtn = document.getElementById('cerrar-redsem-btn');
 const moda = document.getElementById('redsem-moda');
 
-
-
 abririnfsem.onclick = function() {
     modalsem.style.display = "block";
 };
@@ -573,6 +580,27 @@ abririnfsem.addEventListener('click', (e) => {
     modalsem.style.display = 'flex'; 
 });
 
+//Epididimo//
+const modalinfoepi = document.getElementById('Infoepi');
+const spanCerrarepi = document.getElementsByClassName("Cerrarinfepi")[0];
+
+const abrirepi = document.getElementById('epididimo-btn');
+const cerrarepi = document.getElementById('cerrar-epididimo-btn')
+const modaepi = document.getElementById('epididimo-moda');
+
+
+abririnf2.onclick = function() {
+    modalinfoepi.style.display = "block";
+};
+spanCerrarepi.onclick = function() {
+    modalinfoepi.style.display = "none";
+};
+
+abririnf2.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    
+    modaepi.style.display = 'flex'; 
+});
 
       const scene = document.createElement('a-scene');
       scene.setAttribute('embedded', '');
@@ -649,8 +677,8 @@ abririnfsem.addEventListener('click', (e) => {
       });
     });
   </script>
-    </div>
- <script type="module">
+  </div>
+   <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
   import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
@@ -691,3 +719,6 @@ document.getElementById("registroForm").addEventListener("submit", async (e) => 
  </script>
 </body>
 </html>
+
+
+
