@@ -172,28 +172,54 @@
 
     /* ------- SECCIONES DE MODELOS SIN JS ------- */
     .section {
-      display:none;
-      padding: 200px 20px 20px;
-      background: #8fb3e2;
-      border-radius: 15px;
-      max-width: 400px;
-      width: 90%;
-      max-height: 90svh;
-      min-height: 85svh;
-      overflow-y: auto;
-      margin: 120px auto 40px auto;
-      box-sizing: border-box;
-    }
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+
+    /* Tamaño de la ventana */
+    width: 90%;
+    max-width: 800px; 
+    height: auto;
+    max-height: 85vh; 
+    
+    
+    padding: 30px; 
+    background: #8fb3e2;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+    overflow: hidden;        
+    padding: 20px;            
+    display: none; 
+    align-items: center;
+    justify-content: center;
+
+}
+    
     .section:target {
       display:block;
     }
+    .section:target::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 3000px; 
+    height: 3000px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1; 
+}
    .section model-viewer {
-      width: 100%;
-      max-width: 300px;
-      height: 280px;
-      display: block;
-      margin: 0 auto;
-    }
+    width: 100%;
+    height: 450px; 
+    display: block;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 10px;
+}
     .section p {
       max-width: 100%;
       word-wrap: break-word;
@@ -217,29 +243,51 @@
       border-radius: 12px;
       overflow: hidden;
        }
-    .info-box::before {
+   .info-box::before {
     content: "";
     position: absolute;
     inset: 0;
     background-image: url("imagenes/Logoembrio.jpeg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 220px;
-    opacity: 0.18;
+    background-size: 250px; 
+    opacity: 0.12; 
     pointer-events: none;
     z-index: 0;
-    }
+}
     .info-box > * {
     position: relative;
     z-index: 1;
     }
+    #INFOSEM {
+    display: none; 
+    position: fixed;        
+    top: 50%;               
+    left: 50%;              
+    transform: translate(-50%, -50%); 
+    z-index: 2500; 
+    
+    background: #8fb3e2;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px; 
+    max-height: 85vh;
+    padding: 40px; 
+    
+    overflow-y: auto;
+    box-sizing: border-box;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+}
+#INFOSEM:target ~ body {
+    overflow: hidden;
+}
 .Cerrarinfsem {
   color: rgba(49, 72, 122, 1);
-  float: right; /*Esto marca la posición de la x, donde quiero que esté*/
+  float: right; 
   font-size: 28px;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
-  cursor: pointer; /*Esto es para que interactue con el ratón*/
+  cursor: pointer; 
     pointer-events: auto;
 }
 
@@ -247,43 +295,55 @@
 .Cerrarinfsem:focus {
   color: rgba(25, 35, 56, 1);
   text-decoration: none;
-  cursor: pointer; /*Esto es para que interactue con el ratón, en este caso para que se haga más oscuro*/
+  cursor: pointer; 
 }
 .modalsem {
   display: none; 
-  position: fixed; /*Pa que se quede fijo y no se moeba*/
-  z-index: 1; 
+  position: fixed;
+  z-index: 3000; 
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /*Esto es lo que sirve para el scrollsito*/
-  background-color: rgba(0,0,0,0.4); /*Un fondo full negro*/
-    pointer-events: none;
+  overflow: hidden; 
+  background-color: rgba(0,0,0,0.4);
+  pointer-events: auto; 
 }
 
 .ModalSemCont {
-  background: #8fb3e2;; 
-  margin: 7% auto; 
-  padding: 20px;
-  width: 80%; 
-  max-width: 400px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  overflow-y: auto; /*Eso es para que aparezca la barra lateral*/
-  max-height: 70vh; /*Marca la altura hasta donde quiero que llegue la cajita de la info*/
-    pointer-events: auto;
+  background: #8fb3e2;
+  margin: 5% auto; 
+  padding: 25px;
+  width: 85%; 
+  max-width: 600px; 
+  border-radius: 12px;
+  max-height: 80vh; 
+  
+  /* --- CONFIGURACIÓN DEL SCROLL --- */
+  overflow-y: auto; 
+  pointer-events: auto; 
+  -webkit-overflow-scrolling: touch; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+.ModalSemCont::-webkit-scrollbar {
+    display: none;
 }
 .textosem {
-  position:relative; /*Esta del texto es para que se "mande" a los demas elementos, es decir que lo tomen de referencia, ademas que hace que el texto se vea mejor*/
-  z-index: 1;/*Este valor es para que se quede arriba de la imágen de la marca de agua*/
+  position:relative;  
+  z-index: 1;
 }
-
+.textosem p {
+    color: #000;
+    line-height: 1.6;
+    text-align: justify;
+    font-size: 1.05em;
+}
 .textosem h2 {
-  text-align: center;
-  line-height: 1.6; 
-  color: #000;
-  max-width: 500px;
+    text-align: center;
+    color: #12326b; 
+    font-size: 1.8em;
+    margin-bottom: 20px;
 }
 
 .INFBT {
@@ -304,63 +364,6 @@
       background-color: #2980b9;
       transform: scale(1.05);
     }
-#registro-container {
-    width: 90vw;            
-    max-width: 400px;       
-    padding: 2rem;          
-    background: #ffffff;   
-    border-radius: 20px;    
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
-    text-align: center;
-    margin: 10vh auto;      
-}
-
-
-#registro-container h2 {
-    font-size: 1.8rem;
-    color: #12326b;
-    margin-bottom: 1.5rem;
-}
-
-
-#registroForm input, 
-#registroForm select {
-    width: 100%;           
-    padding: 15px;          
-    font-size: 1.1rem;      /
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    box-sizing: border-box; 
-    margin-bottom: 1rem;    
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-
-#registroForm input:focus, 
-#registroForm select:focus {
-    border-color: #8fb3e2;
-}
-
-
-#registroForm button {
-    width: 100%;
-    padding: 18px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    background-color: #12326b;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
-}
-
-
-#registroForm button:active {
-    transform: scale(0.98);
-    background-color: #2980b9;
-}
 
   </style>
 
@@ -368,25 +371,8 @@
 
 <body>
 
-  <div id="registro-container">
-    <h2>Registro de acceso</h2>
-
-    <form id="registroForm">
-      <input type="text" id="nombre" placeholder="Tu nombre" required><br><br>
-
-      <select id="ocupacion" required>
-        <option value="">¿A qué te dedicas?</option>
-        <option value="Estudiante">Estudiante</option>
-        <option value="Profesional de salud">Profesional de salud</option>
-        <option value="Docente">Docente</option>
-        <option value="Público general">Público general</option>
-      </select><br><br>
-
-      <button type="submit">Entrar</button>
-    </form>
-    </div>
-
-<div id="contenidoAR" style="display: none;">
+  
+<div id="contenidoAR" >
   <!-- MENÚ HAMBURGUESA -->
   <div class="hamburger-menu">
     <input id="menu__ham" type="checkbox" />
@@ -400,14 +386,6 @@
       <li><a class="menu__item" href="#modelo2">Recorrido del espermatozoide</a></li>
       <li><a class="menu__item" href="#modelo3">Espermatogénesis</a></li>
       <li><a class="menu__item" href="#modelo4">Epidídimo</a></li>
-      
-      <li class="menu-divider"></li>
-
-      <li class="menu-section">Ovogénesis</li>
-      <li><a class="menu__item" href="#modelo5">Por definir</a></li>
-      <li><a class="menu__item" href="#modelo6">Por definir</a></li>
-      <li><a class="menu__item" href="#modelo7">Por definir</a></li>
-      <li><a class="menu__item" href="#modelo8">Por definir</a></li>
     </ul>
   </div>
 
@@ -441,23 +419,20 @@
             <span class="Cerrarinfsem">&times;</span>
                 <h2>Túbulos Seminiferos</h2>
                   <div class="textosem">
-    <p>La producción y maduración inicial de los espermatozoides dependen de una compleja arquitectura microscópica dentro del testículo. Entre sus estructuras esenciales, la red seminífera o rete testis ocupa un papel crucial como nexo funcional entre la espermatogénesis que ocurre en los túbulos seminíferos y las etapas posteriores de maduración en el epidídimo. Su importancia va más allá del simple transporte: representa un sistema de transición, filtración y acondicionamiento indispensable para la viabilidad espermática.
-  El testículo se organiza en lobulillos delimitados por septos conectivos derivados de la túnica albugínea. Dentro de cada lobulillo se encuentran los túbulos seminíferos, lugar exclusivo donde se lleva a cabo la espermatogénesis. Estos túbulos, que albergan a las células germinales y a las células de Sertoli, convergen hacia estructuras más simples llamadas túbulos rectos, las cuales representan la salida directa del sistema productor de espermatozoides. Los túbulos rectos presentan una característica histológica distintiva: carecen de células germinales y están revestidos únicamente por células de Sertoli en su porción inicial, lo que marca la transición hacia conductos de naturaleza más conductiva que secretora.
-  Los túbulos rectos desembocan en la red seminífera, localizada en el mediastino testicular, una región condensada de tejido conectivo dentro del testículo. Esta red está constituida por una malla de conductos interconectados revestidos por epitelio simple cúbico, el cual presenta microvellosidades y, ocasionalmente, cilios cortos. Tales características son fundamentales para facilitar el movimiento pasivo del fluido testicular y para crear un entorno fisiológico estable que preserve la integridad de los espermatozoides recién formados. En esta región los espermatozoides aún no tienen movilidad propia, por lo que dependen completamente del flujo de líquido secretado por las células de Sertoli y de la absorción progresiva de este fluido para concentrarlos adecuadamente.
-  La función principal de la red seminífera es, por tanto, transportar, filtrar y comenzar a concentrar a los espermatozoides antes de que ingresen a los conductos eferentes, los cuales constituyen la vía de salida hacia el epidídimo. En estos conductos, revestidos por un epitelio pseudoestratificado con células ciliadas y no ciliadas, se absorbe hasta el 90% del líquido proveniente del testículo, una acción fundamental para incrementar la concentración espermática y regular su microambiente. La coordinación entre la rete testis y los conductos eferentes garantiza que los espermatozoides ingresen al epidídimo en condiciones óptimas para la maduración posterior.
-  La relevancia fisiológica de la red seminífera se basa no solo en su papel como vía de tránsito, sino también en su contribución al mantenimiento de la homeostasis testicular. Cualquier alteración en su estructura —como obstrucciones congénitas, alteraciones inflamatorias o fibrosis del mediastino— puede comprometer la salida de los espermatozoides, causando oligozoospermia o azoospermia obstructiva. Desde la perspectiva clínica, esto subraya su importancia en el diagnóstico de la infertilidad masculina.
-  Finalmente, desde el punto de vista embriológico, la red seminífera es un remanente funcional de la red canalicular formada durante el desarrollo del sistema genital masculino, donde los cordones sexuales originan los túbulos seminíferos y posteriormente se continúan con la rete testis. Este origen común explica la disposición conectiva y la continuidad anatómica de todo el sistema de conductos intratesticulares.
-  En conclusión, la red seminífera es una estructura esencial en el sistema reproductor masculino, no sólo como vía de transporte sino como modulador del microambiente inicial de los espermatozoides. Su arquitectura, funciones y relación con las estructuras vecinas demuestran que la fertilidad masculina depende de procesos complejos y finamente regulados en cada etapa del trayecto espermático. Estudiarla permite entender con mayor profundidad la fisiología testicular, la patología de la infertilidad y la coherencia del desarrollo embriológico del aparato reproductor.
-  REFERENCIAS
-  ● Moore, K. L., Persaud, T. V. N., & Torchia, M. G. (2019). Embriología Clínica (10.ª ed.). Elsevier.
-  ● Sadler, T. W. (2019). Langman: Embriología Médica (14.ª ed.). Wolters Kluwer.
-  ● Larsen, W. J. (2017). Embriología Humana (5.ª ed.). Elsevier.
-  ● Junqueira, L. C., & Carneiro, J. (2017). Histología Básica (14.ª ed.). McGraw-Hill.
-  ● Gartner, L. P., & Hiatt, J. L. (2018). Histología en Medicina (5.ª ed.). Wolters Kluwer.
-  ● Drake, R. L., Vogl, A. W., & Mitchell, A. W. M. (2019). Gray. Anatomía para Estudiantes (4.ª ed.). Elsevier.
-  ● Tortora, G. J., & Derrickson, B. (2017). Principios de Anatomía y Fisiología (15.ª ed.). Wiley.
-  ● Guyton, A. C., & Hall, J. E. (2021). Tratado de Fisiología Médica (14.ª ed.). Elsevier.
-  ● Wein, A. J., Kavoussi, L. R., Partin, A. W., Peters, C. A. (2016). Campbell-Walsh Urología (11.ª ed.). Elsevier.</p>
+      <p>El transporte de los espermatozoides comienza en los túbulos seminíferos, localizados en el testículo, donde ocurre la maduración estructural y funcional del espermatozoide. </p>
+      <p>La espermatogénesis ocurre en los túbulos seminíferos, y en este proceso las células espermáticas en desarrollo están unidas a las células sustentaculares o de Sertoli. Las células espermáticas más primitivas son las espermatogonias, algunas de ellas permaneces en reposo, espermatogonias A1 u obscuras, mientras que otras proliferan por mitosis y se convierten en espermatogonias A2 o claras, estas entran en mitosis y dan origen a 3 o 4 generaciones de espermatogonias, A3, A4, o intermedias, para finalmente dar origen a las espermatogonias tipo B[DC1.1], al entrar en el estadio de preleptoteno de la primera división meiótica, están situadas en la parte basal a la barrera hemato-testicular (BHT), mientras que las espermátidas en estadios posteriores están fijas a la superficie apical de las células sustentaculares o de Sertoli mediante complejos de adhesión. Para su liberación a la luz del túbulo seminífero, los complejos de adhesión de superficie se rompen.</p>
+      <p>Esta degradación genera fragmentos de laminina que actúan sobre las proteínas de los complejos de unión estrecha de la BHT, rompiéndola apicalmente al espermatocito primario. Seguidamente, la testosterona, altamente concentrada en el túbulo seminífero, estimula la síntesis de nuevas proteínas de unión estrecha en el lado basal del espermatocito en preleptoteno, restaurando así la integridad de la BHT. Tras la espermiogénesis, el espermatozoide es maduro a nivel morfológico, pero es inmóvil e incapaz de fecundar un óvulo.</p>
+      <p>A continuación, el líquido testicular los transporta de forma pasiva desde los túbulos seminíferos, pasando por los túbulos rectos y la red testicular, hasta la cabeza del epidídimo a través de los conductillos eferentes. El impulso inicial para este movimiento pasivo proviene de la presión del líquido generada en los túbulos seminíferos, asistida por las contracciones de las células mioides localizadas fuera de los túbulos seminíferos. El progreso es sigue siendo ayudado por las contracciones del músculo liso y las corrientes ciliares en los conductillos eferentes.</p>
+      <p>El espermatozoide entra entonces en el conducto del epidídimo, un tubo muy contorneado que mide unos 6 metros en el humano, donde permanece aproximadamente 12 días. Este es el periodo crucial de maduración bioquímica. Durante esta fase, el espermatozoide adquiere una serie de capacidades y sufre cambios asociados a las glucoproteínas de la membrana plasmática de su cabeza. Estos cambios incluyen aumento progresivo de la motilidad y de la capacidad para fertilizar el óvulo, la maduración de su acrosoma, la reorganización molecular de la membrana plasmática, la adquisición de receptores para las proteínas de la zona pelúcida, aumento de enlaces disulfuro entre las nucleoproteínas, la regionalización de los residuos glicosídicos de superficie, y la acumulación de residuos manosilados en la membrana plasmática periacrosómica. Es importante destacar que los espermatozoides carecen de movilidad durante su fase de almacenamiento en el epidídimo, pero en el momento en que alcanzan la cola ya son capaces de fecundar un óvulo.</p>
+      <p>El siguiente paso ocurre durante la emisión, que es la primera fase de la eyaculación refleja. Los espermatozoides son transportados rápidamente desde el epidídimo, atravesando con velocidad el conducto deferente gracias a las contracciones peristálticas de su cubierta muscular gruesa. El semen, ya con espermatozoides, alcanza la uretra prostática a través de los conductos eyaculadores. Durante este tránsito, se mezclan con las secreciones líquidas de las glándulas sexuales accesorias (vesículas seminales, próstata y glándulas bulbouretrales). Las vesículas seminales aportan líquido alcalino (aproximadamente el 70% del total) con mucha fructosa, la principal fuente de energía de los espermatozoides, y prostaglandinas. La próstata aporta secreción ácida (pH 6,5, aproximadamente el 20% del total), rica en ácido cítrico, fosfatasa ácida, zinc y iones de magnesio. El volumen de semen resultante (2 a 6 ml) tiene un pH normal entre 7,2 y 7,8 y contiene entre 40 y 250 millones de espermatozoides. Es en el eyaculado donde los espermatozoides adquieren movilidad.</p>
+      <p>La fase final en el hombre es la eyaculación, donde el semen sale de la uretra a través de su orificio externo. Esto se logra mediante el cierre del esfínter vesical, la contracción del músculo uretral y la contracción de los músculos bulboesponjosos, impulsando el semen a través de la uretra prostática, uretra membranosa y uretra peniana.</p>
+
+      <p><strong>Bibliografía</strong></p>
+      <ul>
+        <li>Carlson BM. Embriología Humana Y Biología del Desarrollo. 6a ed. Elsevier; 2019.</li>
+        <li> KL, Persaud TVN, Torchia MG, editores. Embriología Clínica. 11a ed. Elsevier; 2020.</li>
+        <li>Carlson B.M., Kantaputra P.N. Preparación para el embarazo. En: Carlson B.M. Embriología humana y biología del desarrollo. Ed. 6ª. Elsevier España. 2020: 1-21.</li>
+      </ul>
       </div>
   </div>
 </div>
@@ -470,16 +445,21 @@
       Tu navegador no soporta videos.
     </video>
     <div class="info-box">
-    <p>El transporte de los espermatozoides comienza profundamente en el tracto reproductor masculino, donde la maduración estructural y funcional del gameto está intrínsecamente ligada a su tránsito. La espermatogénesis ocurre en los túbulos seminíferos, y en este proceso las células espermáticas en desarrollo están unidas a las células de Sertoli. La espermatogonia tipo B, al entrar en el estadio de preleptoteno de la primera división meiótica, está situada basal a la barrera hemato-testicular (BHT), mientras que las espermátidas en estadios posteriores están fijas a la superficie apical de las células de Sertoli mediante complejos de adhesión. Para su liberación a la luz del túbulo seminífero, los complejos de adhesión de superficie se rompen. Esta degradación genera fragmentos de laminina que actúan sobre las proteínas de los complejos de unión estrecha de la BHT, rompiéndola apicalmente al espermatocito primario. Seguidamente, la testosterona, altamente concentrada en el túbulo seminífero, estimula la síntesis de nuevas proteínas de unión estrecha en el lado basal del espermatocito en preleptoteno, restaurando así la integridad de la BHT. Tras la espermiogénesis, el espermatozoide es maduro a nivel morfológico, pero es inmóvil e incapaz de fecundar un óvulo.
-A continuación, el líquido testicular los transporta de forma pasiva desde los túbulos seminíferos, pasando por los túbulos rectos y la red testicular, hasta la cabeza del epidídimo a través de los conductillos eferentes. El impulso inicial para este movimiento pasivo proviene de la presión del líquido generada en los túbulos seminíferos, asistida por las contracciones de las células mioides fuera de los túbulos seminíferos. El progreso es luego ayudado por las contracciones del músculo liso y las corrientes ciliares en los conductillos eferentes.
-El espermatozoide entra entonces en el conducto del epidídimo, un tubo muy contorneado que mide unos 6 metros en el humano, donde permanece aproximadamente 12 días. Este es el periodo crucial de maduración bioquímica. Durante esta fase, el espermatozoide adquiere una serie de capacidades y sufre cambios asociados a las glucoproteínas de la membrana plasmática de su cabeza. Estos cambios incluyen el aumento progresivo de la motilidad y de la capacidad para fertilizar el óvulo, la maduración del acrosoma, la reorganización molecular de la membrana plasmática, la adquisición de los receptores para las proteínas de la zona pelúcida, el aumento del enlace disulfuro entre las nucleoproteínas, la regionalización de los residuos glicosídicos de superficie, y la acumulación de residuos manosilados en la membrana plasmática periacrosómica. Es importante destacar que los espermatozoides carecen de movilidad durante su fase de almacenamiento en el epidídimo, pero en el momento en que alcanzan la cola ya son capaces de fecundar un óvulo.
-El siguiente paso ocurre durante la emisión, que es la primera fase de la eyaculación refleja. Los espermatozoides son transportados rápidamente desde el epidídimo, atravesando con velocidad el conducto deferente gracias a las contracciones peristálticas de su cubierta muscular gruesa. El semen, ya con espermatozoides, alcanza la uretra prostática a través de los conductos eyaculadores. Durante este tránsito, se mezclan con las secreciones líquidas de las glándulas sexuales accesorias (vesículas seminales, próstata y glándulas bulbouretrales). Las vesículas seminales aportan líquido alcalino (aproximadamente el 70% del total) con mucha fructosa, la principal fuente de energía de los espermatozoides, y prostaglandinas. La próstata aporta secreción ácida (pH 6,5, aproximadamente el 20% del total), rica en ácido cítrico, fosfatasa ácida, zinc e iones de magnesio. El volumen de semen resultante (2 a 6 ml) tiene un pH normal entre 7,2 y 7,8 y contiene entre 40 y 250 millones de espermatozoides. Es en el eyaculado donde los espermatozoides adquieren movilidad.
-La fase final en el hombre es la eyaculación, donde el semen sale de la uretra a través de su orificio externo. Esto se logra mediante el cierre del esfínter vesical, la contracción del músculo uretral y la contracción de los músculos bulboesponjosos, impulsando el semen a través de la uretra prostática, uretra membranosa y uretra peniana.
-
-Bibliografía
-•	Carlson BM. Embriología Humana Y Biología del Desarrollo. 6a ed. Elsevier; 2019.
-•	Moore KL, Persaud TVN, Torchia MG, editores. Embriología Clínica. 11a ed. Elsevier; 2020.
-</p>
+      <p>La información del video se encuentra organizada por tiempos para facilitar el aprendizaje</p>
+      <p><strong>00:00 - 00:22</strong>La espermatogénesis ocurre dentro de los cordones seminíferos del testículo, donde en la pubertad alrededor de los 13 años bajo estimulo hormonal se canalizan y transforman en túbulos seminíferos funcionales, la espermatogénesis se mantiene toda la vida.</p>
+      <p><strong>00:23 - 00:25</strong>El proceso inicia con las espermatogonias Tipo A, que son células madre con núcleos ovoides que se dividen por mitosis para garantizar una reserva constante.</p>
+      <p><strong>00:26 - 00:30</strong>De estas se forman las espermatogonias Tipo B (2n, 4c), con núcleos redondos que al entrar en fase de crecimiento forman al espermatocito primario.</p>
+      <p><strong>00:31 - 00:34</strong>El espermatocito primario (2n, 4c) duplica su material genético y realiza el entrecruzamiento (crossing over) para la variabilidad genética mediante la meiosis I, donde no ocurre la citocinesis completa, por lo que los espermatocitos de esta generación quedan unidos por puentes citoplasmáticos hasta el final de la espermatogénesis.</p>
+      <p><strong>00:35 - 00:36</strong>Al finalizar la primera división meiótica, las células resultantes son 2 espermatocitos secundarios.</p>
+      <p><strong>00:37 - 00:41</strong>Los espermatocitos secundarios (1n, 2c), tienen cromosomas bivalentes y son de la mitad del tamaño de los espermatocitos primarios, uno es 23Y y el otro 23X, estos entran en meiosis II para convertirse en 4 espermátidas (1n, 1c), de la mitad del tamaño, con cromosomas monovalentes, 2 de ellas son 23X y 23Y para las otras 2.</p>
+      <p><strong>00:42 - 00:50</strong>A través de la espermiogénesis se transforma una espermátide en un espermatozoide funcional. Se forma la cabeza (acrosoma) y el flagelo para la motilidad.</p>
+      <p><strong>00:51 - 1:06</strong>Esto sucede en el túbulo seminífero donde las células en desarrollo están unidas a las células sustentaculares o de Sertoli, encargadas de sostén, nutrición y regulación del microambiente necesario para la diferenciación espermática. </p>
+      <p><strong>1:07- 1:21</strong>Tras la espermiogénesis, el espermatozoide es maduro morfológicamente, pero inmóvil. El líquido testicular los transporta pasivamente por los túbulos seminíferos, asistida por las contracciones de las células mioides fuera de los túbulos seminíferos. El progreso también es ayudado por las contracciones del músculo liso y las corrientes ciliares en los conductillos eferentes.</p>
+      <p><strong>01:22 - 01:38</strong>Pasan por los túbulos rectos y la red testicular hasta la cabeza del epidídimo, un tubo de hasta 6 metros de longitud.</p>
+      <p><strong>01:39 - 01:57</strong>El epidídimo se divide en cabeza, cuerpo y cola, aquí ocurre la maduración bioquímica por 12 días. Este es el periodo crucial de maduración bioquímica, sufre cambios asociados a las glucoproteínas que forman una membrana sobre su cabeza, aumentan de motilidad y la capacidad para fertilizar el óvulo, la maduración del acrosoma, la reorganización molecular de la membrana plasmática y la adquisición de los receptores para las proteínas de la zona pelúcida. </p>
+      <p><strong>01:58 - 02:19</strong>Durante la emisión, los espermatozoides atraviesan rápidamente el conducto deferente gracias a contracciones peristálticas.</p>
+      <p><strong>02:20 - 02:30</strong>El semen alcanza la uretra prostática y se mezcla con secreciones de las vesículas seminales (líquido alcalino con fructosa) y la próstata.</p>
+      <p><strong>02:31 - 02:50</strong>Eyaculación: El semen sale de la uretra a través de su orificio externo mediante la contracción de los músculos bulboesponjosos.</p>
 </div>
     <a href="#" class ="INFBT">Salir</a>
   </div>
@@ -491,25 +471,26 @@ Bibliografía
       Tu navegador no soporta videos.
     </video>
     <div class="info-box">
-    <p> La Espermatogénesis es esa secuencia biológica continua y esencial donde las células germinales masculinas (espermatogonias) se transforman en espermatozoides maduros, listos para la fertilización. Este fenómeno ocurre dentro de los túbulos seminíferos del testículo, comenzando en la pubertad y manteniéndose toda la vida, durante un ciclo completo aproximadamente de 64 a 74 días. Su propósito principal es doble: primero, reducir a la mitad el número de cromosomas (de 2n a 1n) mediante la meiosis; segundo, modificar radicalmente la morfología de la célula para darle motilidad y capacidad enzimática de penetración.
-Fases Secuenciales
-La formación del espermatozoide se concreta en tres fases bien diferenciadas.
-Proliferación y Crecimiento (Mitosis):
-El proceso arranca con las espermatogonias Tipo A, las células madre que se dividen por mitosis para garantizar una reserva constante de células germinales. De estas surgen las Espermatogonias Tipo B (células diploides, 2n cromosomas), las cuales crecen y se preparan para la meiosis. La célula resultante es el Espermatocito Primario (2n cromosomas, 4D de ADN) que ha duplicado su material genético. Un aspecto crucial aquí es que estas células, a partir de este punto, están unidas por puentes citoplasmáticos; esto asegura la sincronía y el reparto equitativo de los productos génicos, indispensable para la diferenciación.
-Maduración y Reducción Cromosómica (Meiosis):
-El Espermatocito Primario realiza la Meiosis I (una división reduccional que toma cerca de 22 días), generando dos Espermatocitos Secundarios (células haploides, 1n cromosomas, 2D de ADN). Durante esta fase prolongada sucede el entrecruzamiento (crossing over), fuente vital de variabilidad genética.
-Luego, cada Espermatocito Secundario se divide rápidamente en la Meiosis II (una división ecuacional), lo que resulta en un total de cuatro Espermátides (células haploides, 1n cromosomas, 1D de ADN) por cada célula primaria inicial.
-Espermiogénesis (Metamorfosis Final):
-La espermiogénesis es la metamorfosis que transforma una redonda e inmóvil espermátide en el funcional espermatozoide, esta transformación consta de varias características que la definen:
-● Cabeza Funcional: El aparato de Golgi crea la vesícula acrosómica, la cual forma el acrosoma (capuchón enzimático) sobre el núcleo. El núcleo se condensa, se alarga, y sus histonas son reemplazadas por protaminas para una ultra compactación del ADN, protegiéndolo para el transporte.
-● Motilidad y Energía: Los centriolos organizan el axonema (el esqueleto del flagelo). Las mitocondrias se envuelven en espiral para crear la pieza intermedia, que actúa como la central energética (ATP) para mover la cola.
-● Liberación: Finalmente, el citoplasma sobrante (cuerpo residual) es expulsado y digerido por las células de Sertoli, liberando al espermatozoide maduro a la luz del túbulo seminífero en un proceso llamado Espermiación.
-REFERENCIAS
-● Moore, K. L., Persaud, T. V. N., & Torchia, M. G. (2020). Antes de nacer: Lo esencial en embriología y defectos congénitos (10a ed.). Elsevier.
-● Sadler, T. W. (2017). Langman Embriología Médica con Orientación Clínica (13a ed.). Wolters Kluwer.
-● Young, B., Heath, J. W., & Wheater, P. R. (2014). Wheater. Histología funcional: texto y atlas en color (6a ed.). Elsevier España.
-● Ross, M. H., & Pawlina, W. (2020). Histología: Texto y atlas. Correlación con biología molecular y celular (8a ed.). Wolters Kluwer.</p>
-      </div>
+    <p>La espermatogénesis es donde las espermatogonias se transforman en espermatozoides maduros, listos para la fertilización. La espermatogénesis ocurre dentro de los cordones seminíferos del testículo, en la pubertad alrededor de los 13 años y bajo estímulo hormonal se canalizan y transforman en túbulos seminíferos funcionales, la espermatogénesis se manteniéndose toda la vida. Su propósito general es reducir a la mitad el número de cromosomas (de 2n a 1n) mediante la meiosis y modificar radicalmente la morfología de la célula para darle motilidad y capacidad enzimática de penetración.</p>
+    <p>La formación del espermatozoide se lleva a cabo en tres fases.</p>
+<ol type="I">
+  <li>Proliferación y Crecimiento (<i>Mitosis</i>):</li>
+  <ul>
+    <li>El proceso inicia con las espermatogonias Tipo A, son células madre con núcleos ovoides, se dividen por mitosis para garantizar una reserva constante de células germinales o de renovación. De estas se forman las espermatogonias Tipo B </li>
+    <li>Las espermatogonias Tipo B son células con núcleos redondos, (2n,4c) cuando entran en fase de crecimiento forman al espermatocito primario.</li>
+  </ul>
+  <li>Maduración y Reducción Cromosómica (<i>Meiosis</i>):</li>
+  <ul>
+    <li>El espermatocito primario (2n4c) que ya duplicó su material genético se prepara para entrar a la diferenciación por medio de la meiosis I, durante esta fase prolongada sucede el entrecruzamiento (crossing over), lo que permite la variabilidad genética. La meiosis I se divide en: profase I, metafase I, anafase I y telofase I, en la mujer la citocinesis es completa, por lo que lo resultante son 2 células completamente separadas, en el hombre la citocinesis es incompleta, por lo que las células de la misma generación se quedan unidas por puentes citoplasmáticos, que se mantienen hasta el final de la espermiogénesis, esto asegura la sincronía y el reparto equitativo de los productos génicos, indispensable para la diferenciación[DC1.1]. Al finalizar la primera división meiótica las células resultantes son 2 espermatocitos secundarios.</li>
+    <li>Los espermatocitos secundarios (1n2c), con cromosomas bivalentes (doble cromátide) y de la mitad del tamaño de los espermatocitos primarios, uno contiene 23Y y el otro 23X, estos terminan la meiosis II para convertirse en 2 espermátidas cada uno.</li>
+    <li>Las 4 espermátidas (1n1c) son de la mitad del tamaño de los espermatocitos secundarios, y con cromosomas monovalentes, 2 de ellas son 23X y 23Y para las otras 2.</li>
+  </ul>
+  <li>Espermiogénesis: La espermiogénesis es la transformación de una espermátide en un espermatozoide funcional, esta transformación consta de varias características que la definen:</li>
+  <ul>
+    <li>Cabeza Funcional: El aparato de Golgi forma la capa acrosómica externa (capuchón enzimático) sobre el núcleo. El núcleo se condensa, se alarga, y sus histonas son reemplazadas por protaminas para una ultra compactación del ADN, protegiéndolo para el transporte.</li>
+  </ul>
+</ol> 
+
     <a href="#" class ="INFBT">Salir</a>
   </div>
 
@@ -521,70 +502,32 @@ REFERENCIAS
             <div class ="ModalSemCont">
             <span class="Cerrarinfepi">&times;</span>
                 <h2>Epidídimo</h2>
-                  <div class="textosem">
-                    <!--<img src="Marca%20de%20agua%20museo.png" alt="Marca de agua museo" class="marca-de-agua">-->
-    <p>El epidídimo es una estructura tubular, firme y alargada que se sitúa sobre la cara
-superior y el borde posterolateral del testículo. Presenta una configuración en
-forma de "C" o coma. Aunque externamente parece una estructura sólida, está
-constituida por un único conducto extraordinariamente contorneado (el conducto
-del epidídimo, que si se desenrolla totalmente, puede tener una longitud de hasta
-6 metros) y los conductillos eferentes, todo ello compactado por tejido
-conectivo.
-El epidídimo se divide en tres regiones morfológicas y funcionales bien definidas:
-1. Cabeza: Es la porción superior y más ensanchada de la estructura.
-Descansa directamente sobre el polo superior del testículo.
-Estructuralmente, la cabeza no está formada por un solo conducto, sino que
-recibe de 12 a 20 conductillos eferentes provenientes de la red
-seminífera. Estos conductillos forman pequeños lóbulos cónicos que, al
-unirse, convergen para formar el inicio del conducto del epidídimo.
-2. Cuerpo: Es la sección intermedia y más delgada. Desciende adosada al
-borde posterior del testículo, pero no está completamente adherida a él.
-Entre el cuerpo del epidídimo y la cara posterolateral del testículo existe un
-espacio o receso revestido por la túnica vaginal visceral, denominado seno
-del epidídimo. En esta sección, el conducto se encuentra sumamente
-enrollado.
-3. Cola: Es la porción inferior y más estrecha. A medida que desciende, el
-conducto disminuye sus circunvoluciones y aumenta el grosor de su pared
-muscular lisa. En su extremo distal, la cola se curva hacia arriba y se
-continúa directamente con el conducto deferente, marcando la salida de
-los espermatozoides hacia el cordón espermático.
-El epidídimo no es un simple conducto de paso; es un órgano metabólicamente
-activo indispensable para la fertilidad. Los espermatozoides que ingresan a la
-cabeza del epidídimo desde el testículo son funcionalmente inmaduros (inmóviles
-e incapaces de fertilizar).
-A lo largo de su tránsito por las regiones de la cabeza y el cuerpo, ocurren
-procesos críticos:
- Maduración Bioquímica: Se secretan glucoproteínas y otras moléculas
-(como la glicerofosfocolina) que modifican la membrana plasmática del
-espermatozoide, estabilizándola y preparándola para la capacitación futura.
- Adquisición de Motilidad: Los espermatozoides desarrollan la capacidad
-de moverse unidireccionalmente de forma progresiva.
- Reabsorción de Fluidos: Gran parte del líquido secretado en los túbulos
-seminíferos es reabsorbido aquí, concentrando la carga espermática.
-La cola del epidídimo cumple una función distinta: actúa como el reservorio
-principal. Aquí, el entorno luminal ácido y la baja temperatura mantienen a los
-espermatozoides en un estado de latencia metabólica, pudiendo almacenarse
-viables durante semanas hasta el momento de la eyaculación, cuando las
-contracciones peristálticas del músculo liso los expulsan hacia el conducto
-deferente.
-BIBLIOGRAFÍAS:
- Moore, K. L., Persaud, T. V. N., & Torchia, M. G. (2019). Embriología Clínica (10.ª
-ed.). Elsevier.
- Carlson, B. M. (2019). Embriología Humana y Biología del Desarrollo (6.ª ed.).
-Elsevier</p>
+                  <div class="textosem">   
+    <p>El epidídimo es una estructura tubular, firme y alargada que se sitúa sobre la cara superior y el borde posterolateral del testículo. Presenta configuración en forma de "C" o coma. Está constituida por un único conducto extraordinariamente contorneado (conducto del epidídimo, su longitud puede ser de 6 metros) y los conductillos eferentes, todo ello compactado por tejido conectivo</p>
+    <p>El epidídimo se divide en tres regiones morfológicas y funcionales bien definidas:</p>
+    <ul>
+      <li><strong>Cabeza:</strong> Es la porción superior y más ensanchada. Descansa sobre el polo superior del testículo. Estructuralmente, la cabeza no está formada por un solo conducto, recibe de 12 a 20 conductillos eferentes provenientes de la red testicular. Estos conductillos forman pequeños lóbulos cónicos que, al unirse, convergen para formar el inicio del conducto del epidídimo.</li>
+      <li><strong>Cuerpo:</strong> Es la sección intermedia y más delgada. Desciende adosada al borde posterior del testículo, pero no está completamente adherida. En esta sección, el conducto se encuentra sumamente enrollado.</li>
+      <li><strong>Cola:</strong> Es la porción inferior y más estrecha. A medida que desciende, el conducto disminuye sus circunvoluciones y aumenta el grosor de su pared muscular lisa. En su extremo distal, la cola se curva hacia arriba y se continúa directamente con el conducto deferente, marcando la salida de los espermatozoides hacia el cordón espermático.</li>
+    </ul>
+    <p>Los espermatozoides que ingresan a la cabeza del epidídimo desde el testículo son funcionalmente inmaduros (inmóviles e incapaces de fertilizar). A lo largo de su tránsito por las regiones de la cabeza y el cuerpo, ocurren los siguientes procesos que son críticos para su desarrollo:</p>
+    <ul>
+      <li><strong>Maduración Bioquímica:</strong> Secretan glucoproteínas y otras moléculas (como glicerofosfocolina) que se incorporan a la membrana plasmática del espermatozoide, incluyendo la cubierta superficial de glucoproteínas que recubre el acrosoma, estabilizándola y preparándola para la capacitación.</li>
+      <li><strong>Adquisición de Motilidad:</strong> Los espermatozoides desarrollan la capacidad de moverse unidireccionalmente.</li>
+      <li><strong>Reabsorción de Fluidos:</strong> Gran parte del líquido secretado en los túbulos seminíferos es reabsorbido aquí, concentrando la carga espermática.</li>
+    </ul>
+    <p>La cola del epidídimo actúa como el reservorio principal. Aquí, el entorno luminal ácido y la baja temperatura mantienen a los espermatozoides en un estado de latencia metabólica, pudiendo almacenarse viables durante semanas hasta el momento de la eyaculación, cuando las contracciones peristálticas del músculo liso los expulsan hacia el conducto deferente.</p>
+    <p><strong>BIBLIOGRAFÍA:</strong></p>
+      <ul>
+        <li>Carlson B.M., Kantaputra P.N. Preparación para el embarazo. En: Carlson B.M. Embriología humana y biología del desarrollo. Ed. 6ª. Elsevier España. 2020: 1-21.</li>
+        <li>Arteaga Martínez M. Gametogénesis: formación del espermatozoide y del ovocito. En: Arteaga Martínez S.M., García Peláez M.I. Embriología humana y biología del desarrollo. Ed. 3ª. Editorial Médica Panamericana. 2021: 34-40.</li>
+      </ul>
+
       </div>
   </div>
   </div>
 </div>
 
-    <div id="modelo5" class="section">
-    <h2>1 de ovogénesis</h2>
-    <model-viewer src="models/embriologia/EpididimoFinal2.glb" auto-rotate camera-controls style="width:300px; height:300px;"></model-viewer>
-    <div class="info-box">
-    <p>Aqui va para lo primero de ovogénesis</p>
-      </div>
-    <a href="#" class="exit-btn">Salir</a>
-  </div>
   <div id="ar-container"></div>
   <button id="exit-ar" style="
     display:none;
@@ -735,47 +678,6 @@ abririnf2.addEventListener('click', (e) => {
     });
   </script>
   </div>
-   <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyD9knh7Wi-xcRKytqFHfLeMbQyDDJ_cMEA",
-  authDomain: "museoembrio.firebaseapp.com",
-  projectId: "museoembrio",
-  storageBucket: "museoembrio.firebasestorage.app",
-  messagingSenderId: "32575409510",
-  appId: "1:32575409510:web:7dcf83909a72b971b80ca7",
-  measurementId: "G-DBQQWGHKZK"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-document.getElementById("registroForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const nombre = document.getElementById("nombre").value;
-  const ocupacion = document.getElementById("ocupacion").value;
-
-  try {
-    await addDoc(collection(db, "accesos"), {
-      nombre: nombre,
-      ocupacion: ocupacion,
-      fecha: new Date(),
-      dispositivo: navigator.userAgent
-    });
-
-    document.getElementById("registro-container").style.display = "none";
-    document.getElementById("contenidoAR").style.display = "block";
-
-  } catch (error) {
-    console.error("Error:", error);
-  }
-});
- </script>
 </body>
 </html>
-
-
-
