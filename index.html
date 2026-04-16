@@ -51,6 +51,7 @@
       padding: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       margin-bottom: 20px;
+      margin-top: 120px;
     }
 
     p { font-size: 1em; text-align: justify; margin: 10px 0; color: #000; }
@@ -84,7 +85,7 @@
 
     .hamburger-menu {
   position: fixed;
-  top: 20px;
+  top: 30px;
   left: 20px;
   z-index: 2000;
   display: none; 
@@ -105,7 +106,7 @@
       position: absolute;
       width: 100%;
       height: 4px;
-      background-color: #12326b;
+      background-color: rgba(143, 179, 226);
       border-radius: 2px;
       transition: 0.3s;
     }
@@ -131,9 +132,9 @@
       top: 0;
       left: -260px;
       width: 220px;
-      height: auto;
+      height: 90vh;
       padding-bottom: 200px;
-      background: rgba(253, 252, 252, 0.265);
+      background:rgba(43, 53, 67);
       padding: 60px 20px;
       list-style: none;
       display: flex;
@@ -147,28 +148,37 @@
       left: 0;
     }
 
-    .menu__item {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2em;
-      padding: 10px;
-      border-radius: 8px;
-    }
+   .menu__item {
+  color: white;
+  text-decoration: none;
+  font-size: 1.3em;      
+  padding: 6px 10px;    
+  border-radius: 6px;
+  display: block;
+  margin: 2px 0;         
+  width: 100%;
+  transition: background 0.4s; 
+}
 
-    .menu__item:hover {
-      background: #297fb9ba;
-    }
+.menu__item:hover {
+  background: rgba(143, 179, 226, 0.8); 
+  
+}
+
+.menu-section {
+  color: rgba(143, 179, 226);
+  pointer-events: none;
+  font-size: 1.4em;      
+  font-weight: 700;
+  margin-bottom: 5px;    
+  padding: 0 10px;       
+}
     .menu-divider {
     height: 10px;
     background: #12326b;
     margin: 10px 0;
     }
-    .menu-section {
-    color: #8fb3e2;
-    pointer-events: none;
-    font-size: 1.6em;
-    font-weight: 700;
-    }
+  
 
     /* ------- SECCIONES DE MODELOS SIN JS ------- */
     .section {
@@ -181,9 +191,9 @@
 
     /* Tamaño de la ventana */
     width: 90%;
-    max-width: 800px; 
-    height: auto;
-    max-height: 85vh; 
+    max-width: 900px; 
+    height: 80%;
+    max-height: 90vh; 
     
     
     padding: 30px; 
@@ -198,7 +208,6 @@
     justify-content: center;
 
 }
-    
     .section:target {
       display:block;
     }
@@ -226,6 +235,66 @@
       overflow-wrap: break-word;
       text-align: justify;
     }
+    .section2 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+
+    /* Tamaño de la ventana */
+    width: 90%;
+    max-width: 800px; 
+    height: auto;
+    max-height: 85vh; 
+    
+    
+    padding: 30px; 
+    background: #8fb3e2;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-sizing: border-box;      
+    padding: 20px;            
+    display: none; 
+    align-items: center;
+    justify-content: center;
+
+}
+    .section2:target {
+      display:block;
+    }
+    .section2:target::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1; 
+    border-radius: 15px;
+}
+   .section2 model-viewer {
+    width: 100%;
+    height: 450px; 
+    display: block;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 10px;
+}
+    .section2 p {
+      max-width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      text-align: justify;
+    }
+    .section2 h2 {
+      color:lightgray;
+    }
+    .section2 ol{
+      text-align:left;
+    }
     .exit-btn {
       display: inline-block;
       margin-top: 20px;
@@ -238,11 +307,23 @@
     .info-box{
       position: relative;
       margin-top: 20px;
+      margin-bottom: 20px;
       padding: 20px;
       background: #8fb3e2;
       border-radius: 12px;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 90px;
        }
+.info-box::-webkit-scrollbar {
+    display: none;
+}
+/* Para IE, Edge y Firefox */
+.info-box {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    }
+
    .info-box::before {
     content: "";
     position: absolute;
@@ -297,6 +378,22 @@
   text-decoration: none;
   cursor: pointer; 
 }
+.Cerrarinfepi {
+  color: rgba(49, 72, 122, 1);
+  float: right; 
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer; 
+    pointer-events: auto;
+}
+
+.Cerrarinfepi:hover,
+.Cerrarinfepi{
+  color: rgba(25, 35, 56, 1);
+  text-decoration: none;
+  cursor: pointer; 
+}
 .modalsem {
   display: none; 
   position: fixed;
@@ -317,7 +414,7 @@
   width: 85%; 
   max-width: 600px; 
   border-radius: 12px;
-  max-height: 80vh; 
+  max-height: 65vh; 
   
   /* --- CONFIGURACIÓN DEL SCROLL --- */
   overflow-y: auto; 
@@ -404,7 +501,6 @@
   </div>
 
   <div id="modelo1" class="section">
-    <!-- Ajuste por pivot corrido del modelo -->
     <model-viewer
       src="Modelos y animaciones/TubulosFinal.glb" 
       auto-rotate
@@ -438,7 +534,7 @@
 </div>
 </div>
 
-  <div id="modelo2" class="section">
+  <div id="modelo2" class="section2">
     <h2>Recorrido del espermatozoide</h2>
     <video controls style="width: 300px; height: 300px;">
       <source src="https://github.com/MuseodeEmbriologia/Museo-de-Embriologia/raw/refs/heads/main/Modelos%20y%20animaciones/RecorridoEspermatozoide.mp4" type="video/mp4">
@@ -446,25 +542,25 @@
     </video>
     <div class="info-box">
       <p>La información del video se encuentra organizada por tiempos para facilitar el aprendizaje</p>
-      <p><strong>00:00 - 00:22</strong>La espermatogénesis ocurre dentro de los cordones seminíferos del testículo, donde en la pubertad alrededor de los 13 años bajo estimulo hormonal se canalizan y transforman en túbulos seminíferos funcionales, la espermatogénesis se mantiene toda la vida.</p>
-      <p><strong>00:23 - 00:25</strong>El proceso inicia con las espermatogonias Tipo A, que son células madre con núcleos ovoides que se dividen por mitosis para garantizar una reserva constante.</p>
-      <p><strong>00:26 - 00:30</strong>De estas se forman las espermatogonias Tipo B (2n, 4c), con núcleos redondos que al entrar en fase de crecimiento forman al espermatocito primario.</p>
-      <p><strong>00:31 - 00:34</strong>El espermatocito primario (2n, 4c) duplica su material genético y realiza el entrecruzamiento (crossing over) para la variabilidad genética mediante la meiosis I, donde no ocurre la citocinesis completa, por lo que los espermatocitos de esta generación quedan unidos por puentes citoplasmáticos hasta el final de la espermatogénesis.</p>
-      <p><strong>00:35 - 00:36</strong>Al finalizar la primera división meiótica, las células resultantes son 2 espermatocitos secundarios.</p>
-      <p><strong>00:37 - 00:41</strong>Los espermatocitos secundarios (1n, 2c), tienen cromosomas bivalentes y son de la mitad del tamaño de los espermatocitos primarios, uno es 23Y y el otro 23X, estos entran en meiosis II para convertirse en 4 espermátidas (1n, 1c), de la mitad del tamaño, con cromosomas monovalentes, 2 de ellas son 23X y 23Y para las otras 2.</p>
-      <p><strong>00:42 - 00:50</strong>A través de la espermiogénesis se transforma una espermátide en un espermatozoide funcional. Se forma la cabeza (acrosoma) y el flagelo para la motilidad.</p>
-      <p><strong>00:51 - 1:06</strong>Esto sucede en el túbulo seminífero donde las células en desarrollo están unidas a las células sustentaculares o de Sertoli, encargadas de sostén, nutrición y regulación del microambiente necesario para la diferenciación espermática. </p>
-      <p><strong>1:07- 1:21</strong>Tras la espermiogénesis, el espermatozoide es maduro morfológicamente, pero inmóvil. El líquido testicular los transporta pasivamente por los túbulos seminíferos, asistida por las contracciones de las células mioides fuera de los túbulos seminíferos. El progreso también es ayudado por las contracciones del músculo liso y las corrientes ciliares en los conductillos eferentes.</p>
-      <p><strong>01:22 - 01:38</strong>Pasan por los túbulos rectos y la red testicular hasta la cabeza del epidídimo, un tubo de hasta 6 metros de longitud.</p>
-      <p><strong>01:39 - 01:57</strong>El epidídimo se divide en cabeza, cuerpo y cola, aquí ocurre la maduración bioquímica por 12 días. Este es el periodo crucial de maduración bioquímica, sufre cambios asociados a las glucoproteínas que forman una membrana sobre su cabeza, aumentan de motilidad y la capacidad para fertilizar el óvulo, la maduración del acrosoma, la reorganización molecular de la membrana plasmática y la adquisición de los receptores para las proteínas de la zona pelúcida. </p>
-      <p><strong>01:58 - 02:19</strong>Durante la emisión, los espermatozoides atraviesan rápidamente el conducto deferente gracias a contracciones peristálticas.</p>
-      <p><strong>02:20 - 02:30</strong>El semen alcanza la uretra prostática y se mezcla con secreciones de las vesículas seminales (líquido alcalino con fructosa) y la próstata.</p>
-      <p><strong>02:31 - 02:50</strong>Eyaculación: El semen sale de la uretra a través de su orificio externo mediante la contracción de los músculos bulboesponjosos.</p>
+      <p><strong>00:00 - 00:22</strong> La espermatogénesis ocurre dentro de los cordones seminíferos del testículo, donde en la pubertad alrededor de los 13 años bajo estimulo hormonal se canalizan y transforman en túbulos seminíferos funcionales, la espermatogénesis se mantiene toda la vida.</p>
+      <p><strong>00:23 - 00:25</strong> El proceso inicia con las espermatogonias Tipo A, que son células madre con núcleos ovoides que se dividen por mitosis para garantizar una reserva constante.</p>
+      <p><strong>00:26 - 00:30</strong> De estas se forman las espermatogonias Tipo B (2n, 4c), con núcleos redondos que al entrar en fase de crecimiento forman al espermatocito primario.</p>
+      <p><strong>00:31 - 00:34</strong> El espermatocito primario (2n, 4c) duplica su material genético y realiza el entrecruzamiento (crossing over) para la variabilidad genética mediante la meiosis I, donde no ocurre la citocinesis completa, por lo que los espermatocitos de esta generación quedan unidos por puentes citoplasmáticos hasta el final de la espermatogénesis.</p>
+      <p><strong>00:35 - 00:36</strong> Al finalizar la primera división meiótica, las células resultantes son 2 espermatocitos secundarios.</p>
+      <p><strong>00:37 - 00:41</strong> Los espermatocitos secundarios (1n, 2c), tienen cromosomas bivalentes y son de la mitad del tamaño de los espermatocitos primarios, uno es 23Y y el otro 23X, estos entran en meiosis II para convertirse en 4 espermátidas (1n, 1c), de la mitad del tamaño, con cromosomas monovalentes, 2 de ellas son 23X y 23Y para las otras 2.</p>
+      <p><strong>00:42 - 00:50</strong> A través de la espermiogénesis se transforma una espermátide en un espermatozoide funcional. Se forma la cabeza (acrosoma) y el flagelo para la motilidad.</p>
+      <p><strong>00:51 - 01:06</strong> Esto sucede en el túbulo seminífero donde las células en desarrollo están unidas a las células sustentaculares o de Sertoli, encargadas de sostén, nutrición y regulación del microambiente necesario para la diferenciación espermática. </p>
+      <p><strong>01:07 - 01:21</strong> Tras la espermiogénesis, el espermatozoide es maduro morfológicamente, pero inmóvil. El líquido testicular los transporta pasivamente por los túbulos seminíferos, asistida por las contracciones de las células mioides fuera de los túbulos seminíferos. El progreso también es ayudado por las contracciones del músculo liso y las corrientes ciliares en los conductillos eferentes.</p>
+      <p><strong>01:22 - 01:38</strong> Pasan por los túbulos rectos y la red testicular hasta la cabeza del epidídimo, un tubo de hasta 6 metros de longitud.</p>
+      <p><strong>01:39 - 01:57</strong> El epidídimo se divide en cabeza, cuerpo y cola, aquí ocurre la maduración bioquímica por 12 días. Este es el periodo crucial de maduración bioquímica, sufre cambios asociados a las glucoproteínas que forman una membrana sobre su cabeza, aumentan de motilidad y la capacidad para fertilizar el óvulo, la maduración del acrosoma, la reorganización molecular de la membrana plasmática y la adquisición de los receptores para las proteínas de la zona pelúcida. </p>
+      <p><strong>01:58 - 02:19</strong> Durante la emisión, los espermatozoides atraviesan rápidamente el conducto deferente gracias a contracciones peristálticas.</p>
+      <p><strong>02:20 - 02:30</strong> El semen alcanza la uretra prostática y se mezcla con secreciones de las vesículas seminales (líquido alcalino con fructosa) y la próstata.</p>
+      <p><strong>02:31 - 02:50</strong> Eyaculación: El semen sale de la uretra a través de su orificio externo mediante la contracción de los músculos bulboesponjosos.</p>
 </div>
     <a href="#" class ="INFBT">Salir</a>
   </div>
 
-  <div id="modelo3" class="section">
+  <div id="modelo3" class="section2">
     <h2>Espermatogénesis</h2>
     <video controls style="width: 300px; height: 300px;">
       <source src="https://github.com/KelvinRiv/Proyecto/raw/refs/heads/main/Espermatogenesisvid.mp4" type="video/mp4">
@@ -472,30 +568,40 @@
     </video>
     <div class="info-box">
     <p>La espermatogénesis es donde las espermatogonias se transforman en espermatozoides maduros, listos para la fertilización. La espermatogénesis ocurre dentro de los cordones seminíferos del testículo, en la pubertad alrededor de los 13 años y bajo estímulo hormonal se canalizan y transforman en túbulos seminíferos funcionales, la espermatogénesis se manteniéndose toda la vida. Su propósito general es reducir a la mitad el número de cromosomas (de 2n a 1n) mediante la meiosis y modificar radicalmente la morfología de la célula para darle motilidad y capacidad enzimática de penetración.</p>
-    <p>La formación del espermatozoide se lleva a cabo en tres fases.</p>
+    <p>La formación del espermatozoide se lleva a cabo en tres fases:</p>
 <ol type="I">
   <li>Proliferación y Crecimiento (<i>Mitosis</i>):</li>
-  <ul>
+  <p></p>
+  <ol type="i">
     <li>El proceso inicia con las espermatogonias Tipo A, son células madre con núcleos ovoides, se dividen por mitosis para garantizar una reserva constante de células germinales o de renovación. De estas se forman las espermatogonias Tipo B </li>
-    <li>Las espermatogonias Tipo B son células con núcleos redondos, (2n,4c) cuando entran en fase de crecimiento forman al espermatocito primario.</li>
-  </ul>
+    <p></p>
+    <li>Las espermatogonias Tipo B son células con núcleos redondos, (2n,4c) cuando entran en fase de crecimiento forman al espermatocito primario.</li> 
+    <p></p>
+  </ol>
   <li>Maduración y Reducción Cromosómica (<i>Meiosis</i>):</li>
-  <ul>
+  <p></p>
+  <ol type="i">
     <li>El espermatocito primario (2n4c) que ya duplicó su material genético se prepara para entrar a la diferenciación por medio de la meiosis I, durante esta fase prolongada sucede el entrecruzamiento (crossing over), lo que permite la variabilidad genética. La meiosis I se divide en: profase I, metafase I, anafase I y telofase I, en la mujer la citocinesis es completa, por lo que lo resultante son 2 células completamente separadas, en el hombre la citocinesis es incompleta, por lo que las células de la misma generación se quedan unidas por puentes citoplasmáticos, que se mantienen hasta el final de la espermiogénesis, esto asegura la sincronía y el reparto equitativo de los productos génicos, indispensable para la diferenciación[DC1.1]. Al finalizar la primera división meiótica las células resultantes son 2 espermatocitos secundarios.</li>
+    <p></p>
     <li>Los espermatocitos secundarios (1n2c), con cromosomas bivalentes (doble cromátide) y de la mitad del tamaño de los espermatocitos primarios, uno contiene 23Y y el otro 23X, estos terminan la meiosis II para convertirse en 2 espermátidas cada uno.</li>
+    <p></p>
     <li>Las 4 espermátidas (1n1c) son de la mitad del tamaño de los espermatocitos secundarios, y con cromosomas monovalentes, 2 de ellas son 23X y 23Y para las otras 2.</li>
-  </ul>
+    <p></p>
+  </ol>
   <li>Espermiogénesis: La espermiogénesis es la transformación de una espermátide en un espermatozoide funcional, esta transformación consta de varias características que la definen:</li>
-  <ul>
+  <p></p>
+  <ol type="i">
     <li>Cabeza Funcional: El aparato de Golgi forma la capa acrosómica externa (capuchón enzimático) sobre el núcleo. El núcleo se condensa, se alarga, y sus histonas son reemplazadas por protaminas para una ultra compactación del ADN, protegiéndolo para el transporte.</li>
-  </ul>
+    <p></p>
+  </ol>
 </ol> 
-
+</div>
     <a href="#" class ="INFBT">Salir</a>
+  
   </div>
 
   <div id="modelo4" class="section">
-    <model-viewer src="Modelos y animaciones/EpididimoFinal.glb" auto-rotate camera-controls style="width:300px; height:300px;"></model-viewer>
+    <model-viewer src="Modelos y animaciones/EpididimoFinal.glb" auto-rotate camera-controls style="width:450px; height:450px;"></model-viewer>
     <button id ="abririnf2">Información</button>
     <a href="#" class ="INFBT">Salir</a>
           <div id="Infoepi" class = "modalsem">
@@ -540,7 +646,7 @@
     border-radius:25px;
     cursor:pointer;
     box-shadow:0 4px 8px rgba(0,0,0,0.2);
-    margin-top:20px;
+    margin-top:100px;
   ">
     
     Salir de AR
