@@ -12,28 +12,58 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
-    body {
+   body {
       background-color: #192338;
       color: #000;
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 0; 
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden; 
+      
+  }
+    .modal-instrucciones {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7); 
+      display: flex; 
       justify-content: center;
-      min-height: auto; 
-      text-align: center;
+      align-items: center;
+      z-index: 4000; 
     }
 
+    .contenido-tutorial {
+      background: lightgray;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      width: 280px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
     .titulo-con-imagenes {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       gap: 15px;
       margin-bottom: 20px;
     }
-
+    .titulo-con-imagenes button {
+       background-color: #8fb3e2;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
     .titulo-con-imagenes img {
       width: 120px;
       height: auto;
@@ -44,14 +74,21 @@
     h2, h3 { margin: 5px 0; color: #000; }
 
     #info {
-      max-width: 800px;
-      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      min-height: 50%;
+      margin-top: 120px;
+      min-width: none;
+      width: 60%;
+      transform: translateX(35%);
       background: #8fb3e2;
       border-radius: 12px;
       padding: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-      margin-top: 120px;
+      box-sizing: border-box;
+      text-align: center;
     }
 
     p { font-size: 1em; text-align: justify; margin: 10px 0; color: #000; }
@@ -67,22 +104,65 @@
       cursor: pointer;
       transition: 0.3s;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      margin-top: 20px;
+     
     }
 
     button:hover {
-      background-color: #2980b9;
       transform: scale(1.05);
     }
 
     #ar-container {
+      display: flex;
+      flex-direction: column; 
+      justify-content: flex-end; 
+      align-items: center; 
+      height: 100vh;
       width: 100%;
-      height: 500px;
-      display: none;
     }
 
-    /* ------ MENÚ HAMBURGUESA INTEGRADO ------ */
+  .help-bubble {
+    position: absolute;
+    top: 15px; 
+    left: 60px;
+    background: #8fb3e2;
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 3000;
+    display: none; 
+    opacity: 0;    
+  }
+  .help-bubble::after {
+    content: '';
+    position: absolute;
+    top: 50%;           
+    left: -10px;        
+    transform: translateY(-50%); 
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 10px solid #8fb3e2; 
+    pointer-events: none; 
+  }
 
+  .help-bubble.active {
+    display: block;
+    animation: slideIn 0.5s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50%) translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(-50%) translateX(0);
+      opacity: 1;
+    }
+  }
     .hamburger-menu {
   position: fixed;
   top: 30px;
@@ -126,7 +206,6 @@
       top: 0; opacity: 0;
     }
 
-    /* Panel lateral */
     .menu__box {
       position: fixed;
       top: 0;
@@ -179,23 +258,16 @@
     margin: 10px 0;
     }
   
-
-    /* ------- SECCIONES DE MODELOS SIN JS ------- */
     .section {
-    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-
-    /* Tamaño de la ventana */
     width: 90%;
     max-width: 900px; 
     height: 80%;
     max-height: 90vh; 
-    
-    
     padding: 30px; 
     background: #8fb3e2;
     border-radius: 15px;
@@ -206,6 +278,7 @@
     display: none; 
     align-items: center;
     justify-content: center;
+    text-align: center;
 
 }
     .section:target {
@@ -227,14 +300,20 @@
     display: block;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.2); 
-    border-radius: 10px;
+    border-radius: 10px; 
 }
+
     .section p {
       max-width: 100%;
       word-wrap: break-word;
       overflow-wrap: break-word;
       text-align: justify;
     }
+.section h2 {
+      color:lightgray;
+      text-align: center;
+    }
+
     .section2 {
     display: none;
     position: fixed;
@@ -242,14 +321,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-
-    /* Tamaño de la ventana */
     width: 90%;
     max-width: 800px; 
     height: auto;
     max-height: 85vh; 
-    
-    
     padding: 30px; 
     background: #8fb3e2;
     border-radius: 15px;
@@ -259,6 +334,7 @@
     display: none; 
     align-items: center;
     justify-content: center;
+    text-align: center;
 
 }
     .section2:target {
@@ -277,11 +353,11 @@
 }
    .section2 model-viewer {
     width: 100%;
-    height: 450px; 
+    height: 400px; 
     display: block;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.2); 
-    border-radius: 10px;
+    
 }
     .section2 p {
       max-width: 100%;
@@ -318,10 +394,10 @@
 .info-box::-webkit-scrollbar {
     display: none;
 }
-/* Para IE, Edge y Firefox */
+
 .info-box {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
     }
 
    .info-box::before {
@@ -415,8 +491,6 @@
   max-width: 600px; 
   border-radius: 12px;
   max-height: 65vh; 
-  
-  /* --- CONFIGURACIÓN DEL SCROLL --- */
   overflow-y: auto; 
   pointer-events: auto; 
   -webkit-overflow-scrolling: touch; 
@@ -436,7 +510,8 @@
     text-align: justify;
     font-size: 1.05em;
 }
-.textosem h2 {
+
+.textosem h3 {
     text-align: center;
     color: #12326b; 
     font-size: 1.8em;
@@ -444,6 +519,7 @@
 }
 
 .INFBT {
+      display: inline-block;
       background-color: #8fb3e2;
       color: #000;
       border: none;
@@ -455,10 +531,11 @@
       transition: 0.3s;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       margin-top: 20px;
+      margin: 10px;
       text-decoration: none;
     }
     .INFBT:hover {
-      background-color: #2980b9;
+     
       transform: scale(1.05);
     }
 
@@ -468,14 +545,27 @@
 
 <body>
 
+<div id="tutorial-ar" class="modal-instrucciones" style="display: none;">
+  <div class="contenido-tutorial">
+    <h3>Bienvenido a la sección de realidad aumentada</h3>
+    <p>Asegurate de permitir el acceso a tu cámara, luego coloca los marcadores frente a ella para observar los modelos</p>
+    <p>Si por error niegas el permiso de la cámara, reinicia la página</p>
+    <p>Recuerda que toda la información de la página es privada por lo que queda prohibido tomar grabar o tomar captura de pantalla.</p>
+      <p>Al dar click en "Entendido" aceptas estos terminos y condiciones</p>
+    <button id="close-tutorial" class="INFBT">Entendido</button>
+  </div>
+</div>
   
 <div id="contenidoAR" >
-  <!-- MENÚ HAMBURGUESA -->
   <div class="hamburger-menu">
     <input id="menu__ham" type="checkbox" />
     <label class="menu__btn" for="menu__ham">
       <span></span>
     </label>
+
+  <div id="help-bubble" class="help-bubble">
+  Haz click aquí para abrir el menú
+  </div>
 
     <ul class="menu__box">
       <li class="menu-section">Espermatogénesis</li>
@@ -486,13 +576,12 @@
     </ul>
   </div>
 
-  <!-- INFO PRINCIPAL -->
   <div id="info">
-    <h1>Museo de Embriología</h1>
+    <h1>Espermatogénesis</h1>
     <div class="titulo-con-imagenes">
       <img src="Marca%20de%20agua%20museo.png" alt="Marca de agua museo">
     </div>
-    <h2>Espermatogénesis</h2>
+    <h2>Espermatogénesis con realidad aumentada</h2>
     <h3>Universidad Autónoma de Chihuahua</h3>
     <p>La embriología es el estudio del desarrollo de un embrión desde la fecundación del óvulo hasta la octava semana de gestación. Este campo científico es fundamental para comprender cómo se forman los organismos y las estructuras celulares básicas que dan origen a la vida.</p>
     <p>Con esta página usted podrá obtener una experiencia de realidad aumentada donde podrá ver modelos 3D animados de la espermatogénesis. Simplemente inicie la cámara y apunte al marcador Hiro para visualizar el contenido.</p>
@@ -501,6 +590,7 @@
   </div>
 
   <div id="modelo1" class="section">
+    <h2>Túbulos seminiferos</h2>
     <model-viewer
       src="Modelos y animaciones/TubulosFinal.glb" 
       auto-rotate
@@ -513,7 +603,7 @@
           <div id="Infosem" class = "modalsem">
             <div class ="ModalSemCont">
             <span class="Cerrarinfsem">&times;</span>
-                <h2>Túbulos Seminiferos</h2>
+                <h3>Túbulos Seminiferos</h3>
                   <div class="textosem">
       <p>El transporte de los espermatozoides comienza en los túbulos seminíferos, localizados en el testículo, donde ocurre la maduración estructural y funcional del espermatozoide. </p>
       <p>La espermatogénesis ocurre en los túbulos seminíferos, y en este proceso las células espermáticas en desarrollo están unidas a las células sustentaculares o de Sertoli. Las células espermáticas más primitivas son las espermatogonias, algunas de ellas permaneces en reposo, espermatogonias A1 u obscuras, mientras que otras proliferan por mitosis y se convierten en espermatogonias A2 o claras, estas entran en mitosis y dan origen a 3 o 4 generaciones de espermatogonias, A3, A4, o intermedias, para finalmente dar origen a las espermatogonias tipo B[DC1.1], al entrar en el estadio de preleptoteno de la primera división meiótica, están situadas en la parte basal a la barrera hemato-testicular (BHT), mientras que las espermátidas en estadios posteriores están fijas a la superficie apical de las células sustentaculares o de Sertoli mediante complejos de adhesión. Para su liberación a la luz del túbulo seminífero, los complejos de adhesión de superficie se rompen.</p>
@@ -536,7 +626,7 @@
 
   <div id="modelo2" class="section2">
     <h2>Recorrido del espermatozoide</h2>
-    <video controls style="width: 300px; height: 300px;">
+    <video controls style="width: 450px; height: 300px;">
       <source src="https://github.com/MuseodeEmbriologia/Museo-de-Embriologia/raw/refs/heads/main/Modelos%20y%20animaciones/RecorridoEspermatozoide.mp4" type="video/mp4">
       Tu navegador no soporta videos.
     </video>
@@ -562,7 +652,7 @@
 
   <div id="modelo3" class="section2">
     <h2>Espermatogénesis</h2>
-    <video controls style="width: 300px; height: 300px;">
+    <video controls style="width: 450px; height: 300px;">
       <source src="https://github.com/KelvinRiv/Proyecto/raw/refs/heads/main/Espermatogenesisvid.mp4" type="video/mp4">
       Tu navegador no soporta videos.
     </video>
@@ -601,13 +691,14 @@
   </div>
 
   <div id="modelo4" class="section">
+    <h2>Epidídimo</h2>
     <model-viewer src="Modelos y animaciones/EpididimoFinal.glb" auto-rotate camera-controls style="width:450px; height:450px;"></model-viewer>
     <button id ="abririnf2">Información</button>
     <a href="#" class ="INFBT">Salir</a>
           <div id="Infoepi" class = "modalsem">
             <div class ="ModalSemCont">
             <span class="Cerrarinfepi">&times;</span>
-                <h2>Epidídimo</h2>
+                <h3>Epidídimo</h3>
                   <div class="textosem">   
     <p>El epidídimo es una estructura tubular, firme y alargada que se sitúa sobre la cara superior y el borde posterolateral del testículo. Presenta configuración en forma de "C" o coma. Está constituida por un único conducto extraordinariamente contorneado (conducto del epidídimo, su longitud puede ser de 6 metros) y los conductillos eferentes, todo ello compactado por tejido conectivo</p>
     <p>El epidídimo se divide en tres regiones morfológicas y funcionales bien definidas:</p>
@@ -636,6 +727,10 @@
 
   <div id="ar-container"></div>
   <button id="exit-ar" style="
+    position: fixed;
+  bottom: 30px;    
+  left: 50%;       
+  transform: translateX(-50%); 
     display:none;
     background-color:#8fb3e2;
     color:#000;
@@ -647,17 +742,46 @@
     cursor:pointer;
     box-shadow:0 4px 8px rgba(0,0,0,0.2);
     margin-top:100px;
+    
   ">
     
     Salir de AR
   </button>
   <script>
+
     const info = document.getElementById('info');
     const arContainer = document.getElementById('ar-container');
     const startBtn = document.getElementById('start-ar');
     const exitBtn = document.getElementById('exit-ar');
 
+    const tutorial = document.getElementById('tutorial-ar');
+const closeTutorialBtn = document.getElementById('close-tutorial');
 
+
+startBtn.addEventListener('click', () => {
+  document.querySelector('.hamburger-menu').style.display = 'block';
+  info.style.display = 'none';
+  arContainer.style.display = 'block';
+  exitBtn.style.display = 'flex';
+  tutorial.style.display = 'flex'; 
+  
+});
+
+closeTutorialBtn.addEventListener('click', () => {
+  tutorial.style.display = 'none';
+});
+
+const helpBubble = document.getElementById('help-bubble');
+
+closeTutorialBtn.addEventListener('click', () => {
+    tutorial.style.display = 'none'; 
+    helpBubble.classList.add('active');
+});
+
+document.querySelector('.hamburger-menu').addEventListener('click', () => {
+    helpBubble.classList.remove('active');
+    helpBubble.style.display = 'none';
+});
     startBtn.addEventListener('click', () => {
       document.querySelector('.hamburger-menu').style.display = 'block';
       info.style.display = 'none';
